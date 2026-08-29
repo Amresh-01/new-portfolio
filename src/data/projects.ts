@@ -31,7 +31,7 @@ export const projects: Project[] = [
     id: "agentos",
     title: "AgentOS",
     status: "Building",
-    image: "/projects/agentos.png", 
+    image: "/projects/agentos.jpg", 
     description: "A self-hosted AI agent operating system for orchestrating autonomous workflows, tools, workers, and persistent memory.",
     fullDescription: "AgentOS is a robust, self-hosted platform designed to coordinate multiple specialized AI agents. Unlike simple chatbot wrappers, it operates on a Planner/Supervisor architecture, distributing tasks across dedicated worker queues while maintaining state through a unified memory layer. The system acts as the underlying infrastructure for autonomous AI workflows.",
     category: ["AI", "Backend", "Infrastructure"],
@@ -128,7 +128,7 @@ export const projects: Project[] = [
     id: "graphmind",
     title: "GraphMind",
     status: "Prototype",
-    image: "/projects/graphmind.png", // Ensure this exists or fallback
+    image: "/projects/graphmind.jpg", // Ensure this exists or fallback
     description: "An AI-powered knowledge system that transforms unstructured documents into connected, queryable knowledge.",
     fullDescription: "GraphMind bridges the gap between raw text and structured intelligence. Rather than relying purely on vector similarity, it extracts entities and relationships to construct a queryable knowledge graph. By combining vector search with graph traversal (Hybrid Retrieval), it provides evidence-backed reasoning that is highly resistant to hallucinations.",
     category: ["AI", "Knowledge Graph"],
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     id: "canteeno",
     title: "Canteeno",
     status: "Live",
-    image: "/projects/canteeno.png", // Add fallback if needed
+    image: "/projects/canteeno.jpg", // Add fallback if needed
     description: "A full-stack backend application handling high-concurrency food ordering and cafeteria management.",
     fullDescription: "Canteeno is a live production system designed to process university cafeteria orders efficiently. It handles user authentication, live inventory management, transactional order processing, and real-time status updates via a decoupled API architecture.",
     category: ["Full Stack", "Backend"],
@@ -182,7 +182,7 @@ export const projects: Project[] = [
     id: "healthcareai",
     title: "HealthcareAI",
     status: "Live",
-    image: "/projects/healthcare.png", 
+    image: "/projects/healthcare.jpg", 
     description: "An AI-assisted healthcare platform featuring a RAG-based MediBot, NLP symptom analysis, and XGBoost disease prediction.",
     fullDescription: "HealthcareAI bridges modern web architecture with machine learning integration. It provides a robust patient-doctor ecosystem, featuring a symptom-search module backed by NLP and an XGBoost prediction service, alongside a RAG-based MediBot to offer preliminary health insights before consultations.",
     category: ["AI", "Full Stack", "ML"],

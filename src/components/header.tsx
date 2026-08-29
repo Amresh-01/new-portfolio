@@ -90,7 +90,7 @@ function useTime(timeZone: string) {
 }
 
 export function Header() {
-  const [isTwitter, setIsTwitter] = useState(false);
+  const [isTwitter, setIsTwitter] = useState(true);
   const { count } = useVisitors();
   const istTime = useTime("Asia/Kolkata");
   const dubaiTime = useTime("Asia/Dubai");

@@ -53,8 +53,6 @@ export default function Home() {
           <ReadingSection />
         </Section>
 
-        <Footer />
-
         <VisitorsMap />
         <CountryList />
       </PageContent>
