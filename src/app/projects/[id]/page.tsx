@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, GitBranch as GithubIcon, Globe, FileText } from "lucide-react";
+import { ArrowLeft, GitBranch as GithubIcon, Globe, FileText, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import { TECH_ICONS } from "@/data/tech-icons";
 
@@ -47,18 +47,49 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   const githubUrl = project.links.find((link) => link.text === "GitHub")?.url || "#";
-  const websiteUrl = project.links.find((link) => link.primary)?.url || "#";
-  const hasPost = !!project.launchTweetUrl && project.launchTweetUrl !== "#";
+  const websiteUrl = project.links.find((link) => link.text === "Visit Site" || link.primary)?.url;
+  const hasPost = false; // Post links removed per new schema, but can be added back if needed
+
+  let statusClass = "project-status-building";
+  if (project.status === "Live") statusClass = "project-status-live";
+  if (project.status === "Prototype") statusClass = "project-status-prototype";
 
   return (
-    <main className="project-page">
-      <div className="project-page-shell">
-        <Link href="/projects" className="project-page-back">
+    <main className="premium-project-page">
+      <div className="premium-page-shell">
+        <Link href="/projects" className="premium-back-link">
           <ArrowLeft size={16} />
-          Projects
+          Back to Projects
         </Link>
 
-        <div className="project-page-hero">
+        {/* Header */}
+        <header className="premium-page-header">
+          <div className="premium-title-row">
+            <h1 className="premium-title">{project.title}</h1>
+            <span className={`premium-status-badge ${statusClass}`}>
+              <span className="premium-status-dot"></span>
+              {project.status.toUpperCase()}
+            </span>
+          </div>
+          <p className="premium-thesis">{project.description}</p>
+        </header>
+
+        {/* Links */}
+        <div className="premium-action-bar">
+          {githubUrl !== "#" && (
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="premium-action-btn">
+              <GithubIcon size={16} /> GitHub Repository
+            </a>
+          )}
+          {websiteUrl && websiteUrl !== "#" && (
+            <a href={websiteUrl} target="_blank" rel="noopener noreferrer" className="premium-action-btn primary">
+              <Globe size={16} /> Live Demo
+            </a>
+          )}
+        </div>
+
+        {/* Image / Visual Context */}
+        <div className="premium-hero-image">
           <Image
             src={project.image}
             alt={project.title}
@@ -70,103 +101,70 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           />
         </div>
 
-        <div
-          className="project-page-action-bar"
-          style={{ gridTemplateColumns: hasPost ? "repeat(3, 1fr)" : "repeat(2, 1fr)" }}
-        >
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-page-action-btn"
-          >
-            <GithubIcon size={17} />
-            Github
-          </a>
-          <a
-            href={websiteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-page-action-btn"
-          >
-            <Globe size={17} />
-            Website
-          </a>
-          {hasPost && (
-            <a
-              href={project.launchTweetUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-page-action-btn"
-            >
-              <FileText size={17} />
-              Post
-            </a>
-          )}
-        </div>
+        {/* Overview */}
+        <section className="premium-section">
+          <h2 className="premium-section-title">Overview</h2>
+          <p className="premium-section-text">{project.fullDescription}</p>
+        </section>
 
-        <div className="project-page-title-row">
-          <h1 className="project-page-title">{project.title}</h1>
-          <div className="project-status">
-            <div className={`status-dot ${project.status.toLowerCase()}`} />
-            {project.status}
-          </div>
-        </div>
-
-        <p className="project-page-description">{project.description}</p>
-        <p className="project-page-description">{project.fullDescription}</p>
-
-        <div className="project-page-metrics">
-          {project.metrics.map((metric) => (
-            <div key={metric} className="project-page-metric">
-              <span className="project-page-metric-value">{metric}</span>
-            </div>
-          ))}
-        </div>
-
+        {/* Architecture */}
         {project.architecture && (
-          <div className="project-page-architecture">
-            <h2 className="project-page-section-title">Architecture</h2>
-            <div className="architecture-flow">
+          <section className="premium-section">
+            <h2 className="premium-section-title">Architecture</h2>
+            <div className="premium-architecture-grid">
               {project.architecture.map((step, index) => (
-                <div key={step.label} className="architecture-step">
-                  <div className="architecture-step-index">{String(index + 1).padStart(2, "0")}</div>
-                  <div>
-                    <h3>{step.label}</h3>
-                    <p>{step.detail}</p>
-                  </div>
+                <div key={step.label} className="premium-architecture-node">
+                  <div className="premium-node-label">{step.label}</div>
+                  <div className="premium-node-detail">{step.detail || (step as any).point}</div>
                 </div>
               ))}
             </div>
-          </div>
+          </section>
         )}
 
-        <div className="project-page-case-study">
-          <div className="case-study-block">
-            <h2 className="case-study-title">Why I built this</h2>
-            <p className="case-study-text">{project.caseStudy.why}</p>
-          </div>
-          <div className="case-study-block">
-            <h2 className="case-study-title">Use case</h2>
-            <p className="case-study-text">{project.caseStudy.useCase}</p>
-          </div>
-          <div className="case-study-block">
-            <h2 className="case-study-title">What I learned</h2>
-            <p className="case-study-text">{project.caseStudy.learned}</p>
-          </div>
-          <div className="case-study-block">
-            <h2 className="case-study-title">Where I got stuck</h2>
-            <p className="case-study-text">{project.caseStudy.stuck}</p>
-          </div>
-        </div>
+        {/* Why I Built This */}
+        {project.whyBuilt && (
+          <section className="premium-section">
+            <h2 className="premium-section-title">Why I built this</h2>
+            <p className="premium-section-text">{project.whyBuilt}</p>
+          </section>
+        )}
 
-        <div className="project-page-stack-section">
-          <h2 className="project-page-stack-title">Stack used</h2>
-          <div className="stack-pill-grid">
+        {/* Challenges */}
+        {project.challenges && project.challenges.length > 0 && (
+          <section className="premium-section">
+            <h2 className="premium-section-title">Engineering Challenges</h2>
+            <ul className="premium-challenge-list">
+              {project.challenges.map((challenge, i) => (
+                <li key={i} className="premium-challenge-item">
+                  <ArrowRight size={14} className="premium-challenge-icon" />
+                  <span>{challenge}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* What I learned */}
+        {project.lessons && project.lessons.length > 0 && (
+          <section className="premium-section">
+            <h2 className="premium-section-title">What I learned</h2>
+            <div className="premium-lessons-container">
+              {project.lessons.map((lesson, i) => (
+                <p key={i} className="premium-section-text">{lesson}</p>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Stack */}
+        <section className="premium-section">
+          <h2 className="premium-section-title">Stack</h2>
+          <div className="premium-stack-grid">
             {project.techStack.map((tech) => {
-              const iconSrc = TECH_ICONS[tech];
+              const iconSrc = TECH_ICONS[tech] || null;
               return (
-                <span key={tech} className="stack-pill">
+                <span key={tech} className="premium-stack-pill">
                   {iconSrc && (
                     <Image
                       src={iconSrc}
@@ -181,7 +179,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               );
             })}
           </div>
-        </div>
+        </section>
+
       </div>
     </main>
   );

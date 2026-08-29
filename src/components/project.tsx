@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Project } from "@/data/projects";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, GitBranch as GithubIcon } from "lucide-react";
 
 interface ProjectItemProps {
   project: Project;
@@ -11,66 +10,59 @@ interface ProjectItemProps {
 
 export function ProjectItem({ project }: ProjectItemProps) {
   const isBuilding = project.status === "Building";
-  const screenLabel = isBuilding ? "Coming Soon" : project.title;
+  const isLive = project.status === "Live";
+  const isPrototype = project.status === "Prototype";
+
+  let statusClass = "project-status-building";
+  if (isLive) statusClass = "project-status-live";
+  if (isPrototype) statusClass = "project-status-prototype";
 
   return (
-    <Link className="project-card-link" href={`/projects/${project.id}`}>
-      {/* Image Area */}
-      <div className="project-card-image-wrap">
-        <div className="project-card-image-inner">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            quality={88}
-            style={{ objectFit: "cover" }}
-          />
-        </div>
-        {screenLabel && (
-          <span className="project-card-screen-label">{screenLabel}</span>
-        )}
-        {project.launchTweetUrl && project.launchTweetUrl !== "#" && (
-          <span className="project-card-pin-btn">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="12" y1="17" x2="12" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/>
-            </svg>
-          </span>
-        )}
-      </div>
-
-      {/* Card Body */}
-      <div className="project-card-body">
-        <div className="project-card-title-row">
-          <h3 className="project-card-title">{project.title}</h3>
-          <div className="project-card-status">
-            <span className={`project-status-dot ${project.status === "Live" ? "dot-live" : "dot-building"}`} />
-            <span className="project-status-label">{project.status}</span>
-          </div>
-        </div>
-        <p className="project-card-desc">{project.description}</p>
-        <div className="project-card-metrics">
-          {project.metrics.slice(0, 2).map((metric) => (
-            <span key={metric} className="project-card-metric">{metric}</span>
-          ))}
-        </div>
-        <div className="project-card-tags">
-          {project.techStack.slice(0, 4).map((tag) => (
-            <span key={tag} className="project-card-tag">{tag}</span>
-          ))}
-        </div>
-        <span className="project-card-view-link">
-          View Project <ArrowUpRight size={13} />
+    <div className="premium-project-card">
+      <div className="premium-card-header">
+        <span className={`premium-status-badge ${statusClass}`}>
+          <span className="premium-status-dot"></span>
+          {project.status.toUpperCase()}
         </span>
       </div>
-    </Link>
+      
+      <div className="premium-card-body">
+        <h3 className="premium-project-title">{project.title}</h3>
+        <p className="premium-project-desc">{project.description}</p>
+        
+        <div className="premium-tech-stack">
+          {project.techStack.slice(0, 5).map((tech) => (
+            <span key={tech} className="premium-tech-badge">{tech}</span>
+          ))}
+          {project.techStack.length > 5 && (
+            <span className="premium-tech-badge muted">+{project.techStack.length - 5}</span>
+          )}
+        </div>
+      </div>
+
+      <div className="premium-card-footer">
+        {project.links.find(l => l.text === "GitHub") && (
+          <a 
+            href={project.links.find(l => l.text === "GitHub")?.url} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="premium-action-link"
+          >
+            <GithubIcon size={14} /> GitHub
+          </a>
+        )}
+        <Link href={`/projects/${project.id}`} className="premium-action-link primary">
+          Case Study <ArrowUpRight size={14} />
+        </Link>
+      </div>
+    </div>
   );
 }
 
 export function ProjectList({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <div className="project-grid">
+      <div className="projects-page-grid">
         {children}
       </div>
       <div className="project-view-all-wrap">

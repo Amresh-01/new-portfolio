@@ -14,7 +14,7 @@ import { PageContent } from "@/components/page-content";
 import { VisitorsMap } from "@/components/visitors-map";
 import { CountryList } from "@/components/country-list";
 
-const HOME_PROJECT_IDS = ["chessable", "pinggod", "antimetal", "eyeswitch"];
+const HOME_PROJECT_IDS = ["agentos", "loadforge", "pulsewatch", "graphmind"];
 const homeProjects = HOME_PROJECT_IDS
   .map((id) => projects.find((p) => p.id === id))
   .filter(Boolean) as Project[];
