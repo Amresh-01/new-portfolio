@@ -23,7 +23,7 @@ export interface Project {
   whyBuilt?: string;
   challenges?: string[];
   lessons?: string[];
-  metrics?: string[]; // Kept for backwards compatibility if needed
+  metrics?: string[]; 
 }
 
 export const projects: Project[] = [
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     id: "agentos",
     title: "AgentOS",
     status: "Building",
-    image: "/projects/agentos.png", // Ensure user provides this image or we use a fallback later
+    image: "/projects/agentos.png", 
     description: "A self-hosted AI agent operating system for orchestrating autonomous workflows, tools, workers, and persistent memory.",
     fullDescription: "AgentOS is a robust, self-hosted platform designed to coordinate multiple specialized AI agents. Unlike simple chatbot wrappers, it operates on a Planner/Supervisor architecture, distributing tasks across dedicated worker queues while maintaining state through a unified memory layer. The system acts as the underlying infrastructure for autonomous AI workflows.",
     category: ["AI", "Backend", "Infrastructure"],
@@ -182,14 +182,14 @@ export const projects: Project[] = [
     id: "healthcareai",
     title: "HealthcareAI",
     status: "Live",
-    image: "/projects/healthcare.png", // Add fallback
-    description: "An AI-assisted healthcare platform connecting patients with doctors and providing symptom-based disease prediction.",
-    fullDescription: "HealthcareAI bridges modern web architecture with machine learning integration. It provides a robust patient-doctor ecosystem, featuring a symptom-search module backed by an ML prediction service to offer preliminary health insights before consultations.",
+    image: "/projects/healthcare.png", 
+    description: "An AI-assisted healthcare platform featuring a RAG-based MediBot, NLP symptom analysis, and XGBoost disease prediction.",
+    fullDescription: "HealthcareAI bridges modern web architecture with machine learning integration. It provides a robust patient-doctor ecosystem, featuring a symptom-search module backed by NLP and an XGBoost prediction service, alongside a RAG-based MediBot to offer preliminary health insights before consultations.",
     category: ["AI", "Full Stack", "ML"],
-    techStack: ["React", "Node.js", "Express", "MongoDB", "Redis", "REST APIs"],
+    techStack: ["React", "Node.js", "Express", "MongoDB", "Redis", "XGBoost", "NLP", "RAG", "REST APIs"],
     links: [
       { url: "https://healhcare-ai.vercel.app/", text: "Visit Site", primary: true },
-      { url: "https://github.com/Amresh-01", text: "GitHub", primary: false }
+      { url: "https://github.com/Amresh-01/HealthcareAi", text: "GitHub", primary: false }
     ],
     whyBuilt: "To create an accessible entry point for patients to evaluate their symptoms and immediately route them to appropriate medical professionals within the same platform.",
     challenges: [
