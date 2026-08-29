@@ -172,7 +172,7 @@ export function Header() {
         </div>
         <div className="hero-info-grid">
           <InfoRow icon={<Mail size={13} />} text={<a href="mailto:amresh.codes@gmail.com" className="info-link">amresh.codes@gmail.com</a>} />
-          <InfoRow icon={<Globe size={13} />} text={<a href="https://abhijitamdubey.site" target="_blank" rel="noopener noreferrer" className="info-link">abhijitamdubey.site</a>} />
+          <InfoRow icon={<Globe size={13} />} text={<a href="https://amreshdevs.vercel.app" target="_blank" rel="noopener noreferrer" className="info-link">amreshdevs.vercel.app</a>} />
         </div>
       </div>
 
