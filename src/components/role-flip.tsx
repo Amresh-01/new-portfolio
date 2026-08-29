@@ -8,7 +8,8 @@ const ROLES = [
   "Open Source Contributor",
   "Founder",
   "Full Stack Engineer",
-  "Solana Developer",
+  "AI/ML Engineer",
+  "AI Infrastructure Engineer",
 ];
 
 export function RoleFlip() {

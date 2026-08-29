@@ -4,7 +4,6 @@ import { Footer } from "@/components/footer";
 import { ArrowLeft } from "lucide-react";
 import { fetchGithubPRs } from "@/lib/github-prs";
 import { OssTabs } from "@/components/oss-tabs";
-import { openPRs as fallbackOpen, mergedPRs as fallbackMerged } from "@/data/oss";
 
 export const revalidate = 3600; 
 
@@ -13,11 +12,6 @@ export default async function OSSPage() {
   
   let openPRs = await fetchGithubPRs(GITHUB_USERNAME, "open");
   let mergedPRs = await fetchGithubPRs(GITHUB_USERNAME, "merged");
-
-  if (openPRs.length === 0 && mergedPRs.length === 0) {
-    openPRs = fallbackOpen;
-    mergedPRs = fallbackMerged;
-  }
 
   return (
     <main>

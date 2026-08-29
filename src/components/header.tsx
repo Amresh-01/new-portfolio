@@ -113,7 +113,7 @@ export function Header() {
                   />
                 ) : (
                   <Image
-                    src="/me.png"
+                    src="/me.jpg"
                     alt="Amresh Chaurasiya"
                     fill
                     style={{ objectFit: "cover" }}
