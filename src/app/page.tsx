@@ -19,6 +19,8 @@ const homeProjects = HOME_PROJECT_IDS
   .map((id) => projects.find((p) => p.id === id))
   .filter(Boolean) as Project[];
 
+
+
 export default function Home() {
   return (
     <main>

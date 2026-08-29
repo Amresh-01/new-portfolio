@@ -18,7 +18,7 @@ export function GitHubGraph() {
   useEffect(() => setMounted(true), []);
 
   const currentYear = new Date().getFullYear();
-  const colorScheme = resolvedTheme === "dark" ? "dark" : "light";
+  const colorScheme = resolvedTheme === "light" ? "light" : "dark";
 
   const theme = {
     light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
@@ -57,8 +57,9 @@ export function GitHubGraph() {
               theme={theme}
               colorScheme={colorScheme}
               fontSize={12}
-              blockSize={11}
-              blockMargin={4}
+              blockSize={10}
+              blockMargin={3}
+              blockRadius={2}
               renderBlock={(block, activity) =>
                 React.cloneElement(block, {
                   onMouseEnter: (e: React.MouseEvent<SVGRectElement>) => {
