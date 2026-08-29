@@ -1,15 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Redis } from "@upstash/redis";
 
-const COUNTER_BASE = "https://api.counterapi.dev/v1/Amresh-01/portfolio";
+const redis = Redis.fromEnv();
+const COUNTER_KEY = "portfolio_views:amreshdev.me";
+const PREVIOUS_COUNT = 0; 
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   const increment = req.nextUrl.searchParams.get("increment") === "1";
-  const url = increment ? `${COUNTER_BASE}/up` : COUNTER_BASE;
 
-  const res = await fetch(url, { next: { revalidate: 0 } });
-  if (!res.ok) {
-    return NextResponse.json({ count: null }, { status: res.status });
+  try {
+    let count = 0;
+    
+    if (increment) {
+      count = await redis.incr(COUNTER_KEY);
+    } else {
+      const val = await redis.get<number>(COUNTER_KEY);
+      count = val || 0;
+    }
+
+    return NextResponse.json({ count: count + PREVIOUS_COUNT });
+  } catch (error) {
+    console.error("Redis Error:", error);
+    return NextResponse.json({ count: null }, { status: 500 });
   }
-  const data = await res.json();
-  return NextResponse.json({ count: typeof data.count === "number" ? data.count : null });
 }
