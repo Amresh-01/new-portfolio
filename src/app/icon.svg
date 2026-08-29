@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="AD favicon">
+  <rect x="0" y="0" width="128" height="128" rx="28" fill="#000000" />
+  <g fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Freehand A -->
+    <path d="M38,92 C45,50 52,38 58,38 C64,38 68,50 72,92" />
+    <path d="M44,68 C52,65 60,66 66,69" />
+    <!-- Freehand D -->
+    <path d="M84,36 C82,50 83,70 84,90" />
+    <path d="M84,38 C108,36 114,50 112,65 C110,80 100,89 84,90" />
+  </g>
+</svg>
