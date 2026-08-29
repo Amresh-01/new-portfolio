@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { SiteNav } from "@/components/site-nav";
-import { Footer } from "@/components/footer";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { blogPosts } from "@/data/blog";
 
@@ -48,7 +47,6 @@ export default function BlogPage() {
         ))}
       </div>
 
-      <Footer />
-    </main>
+          </main>
   );
 }

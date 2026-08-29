@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { SiteNav } from "@/components/site-nav";
-import { Footer } from "@/components/footer";
 import { ArrowLeft } from "lucide-react";
 import { fetchGithubPRs } from "@/lib/github-prs";
 import { OssTabs } from "@/components/oss-tabs";
@@ -30,7 +29,6 @@ export default async function OSSPage() {
         <OssTabs openPRs={openPRs} mergedPRs={mergedPRs} />
       </div>
 
-      <Footer />
-    </main>
+          </main>
   );
 }

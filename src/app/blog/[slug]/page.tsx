@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteNav } from "@/components/site-nav";
-import { Footer } from "@/components/footer";
 import { ArrowLeft } from "lucide-react";
 import { blogPosts } from "@/data/blog";
 
@@ -58,7 +57,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <Content />
         </article>
       </div>
-      <Footer />
-    </main>
+          </main>
   );
 }

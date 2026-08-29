@@ -3,7 +3,6 @@ import { SiteNav } from "@/components/site-nav";
 import { Section } from "@/components/section";
 import { GitHubGraph } from "@/components/github-graph";
 import { ProjectList, ProjectItem } from "@/components/project";
-import { Footer } from "@/components/footer";
 import { projects, Project } from "@/data/projects";
 import { AboutSection } from "@/components/about-section";
 import { TechStack } from "@/components/tech-stack";

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { SiteNav } from "@/components/site-nav";
 import { ProjectsGrid } from "@/components/projects-grid";
-import { Footer } from "@/components/footer";
 
 export default function ProjectsPage() {
   return (
@@ -20,7 +19,6 @@ export default function ProjectsPage() {
 
       <ProjectsGrid />
 
-      <Footer />
-    </main>
+          </main>
   );
 }
