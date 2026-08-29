@@ -48,7 +48,7 @@ interface VisitorDB {
   recentVisitors: RecentVisitor[];
 }
 
-const SEED_COUNT = 206;
+const SEED_COUNT = 0;
 
 const EMPTY_DB: VisitorDB = {
   totalVisits: SEED_COUNT,
