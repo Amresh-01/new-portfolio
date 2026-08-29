@@ -77,7 +77,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           style={{ gridTemplateColumns: `repeat(${colCount}, 1fr)` }}
         >
           <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="modal-action-btn">
-            <Github size={18} />
+            <GithubIcon size={18} />
             Github
           </a>
           {hasWebsite ? (

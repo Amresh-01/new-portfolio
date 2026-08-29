@@ -80,7 +80,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             rel="noopener noreferrer"
             className="project-page-action-btn"
           >
-            <Github size={17} />
+            <GithubIcon size={17} />
             Github
           </a>
           <a
