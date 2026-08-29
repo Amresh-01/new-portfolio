@@ -7,17 +7,17 @@ import { useAgentMode } from "@/contexts/agent-mode";
 
 const portfolioData = {
   identity: {
-    name: "Abhijitam Dubey",
-    alias: "@abhijitam_tw",
+    name: "Amresh Chaurasiya",
+    alias: "@Amresh__01",
     role: "Software Developer",
     type: "Full-Stack Engineer",
     location: "New Delhi, India",
     timezone: "IST (UTC+5:30)",
-    email: "work.abhijitam@gmail.com",
-    website: "abhijitamdubey.site",
-    github: "https://github.com/Abhijitam01",
-    twitter: "https://x.com/abhijitam_tw",
-    linkedin: "https://www.linkedin.com/in/abhijitam-dubey-3ab794263/",
+    email: "amresh.codes@gmail.com",
+    website: "amreshdevs.vercel.app",
+    github: "https://github.com/Amresh-01",
+    twitter: "https://x.com/Amresh__01",
+    linkedin: "https://www.linkedin.com/in/amresh-chaurasiya-b589b3249/",
   },
   about:
     "Full-Stack Engineer focused on performance, scalability, and shipping production-grade software. Currently building tools and platforms that make developers' lives easier. Specialized in TypeScript, React, and Solana development.",
@@ -76,7 +76,7 @@ export function AgentView() {
       <div className="agent-view-header">
         <div className="agent-view-header-top">
           <span className="agent-view-method">GET</span>
-          <span className="agent-view-path">/api/v1/person/abhijitam</span>
+          <span className="agent-view-path">/api/v1/person/amresh</span>
           <span className="agent-view-status">200 OK</span>
         </div>
         <div className="agent-view-meta">

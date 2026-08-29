@@ -53,7 +53,7 @@ export function SiteNav() {
             <span>{views !== null ? views.toLocaleString() : "—"}</span>
           </div>
           <a
-            href="https://github.com/Abhijitam01"
+            href="https://github.com/Amresh-01"
             target="_blank"
             rel="noreferrer"
             className="site-nav-views-btn"

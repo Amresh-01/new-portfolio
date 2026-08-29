@@ -21,17 +21,17 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const project = projects.find((p) => p.id === id);
   if (!project) return {};
   return {
-    title: `${project.title} — Abhijitam Dubey`,
+    title: `${project.title} — Amresh Chaurasiya`,
     description: project.description,
     openGraph: {
-      title: `${project.title} — Abhijitam Dubey`,
+      title: `${project.title} — Amresh Chaurasiya`,
       description: project.description,
       images: [{ url: project.image }],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} — Abhijitam Dubey`,
+      title: `${project.title} — Amresh Chaurasiya`,
       description: project.description,
       images: [project.image],
     },

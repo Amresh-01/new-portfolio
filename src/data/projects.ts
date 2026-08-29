@@ -53,7 +53,7 @@ export const projects: Project[] = [
     techStack: ["TypeScript", "Next.js", "WebSockets", "Redis", "chess.js", "Tailwind CSS", "Turborepo", "Docker"],
     links: [
       { url: "https://chessable.space", text: "Visit Site", primary: true },
-      { url: "https://github.com/Abhijitam01/chess", text: "GitHub", primary: false }
+      { url: "https://github.com/Amresh-01/chess", text: "GitHub", primary: false }
     ],
     caseStudy: {
       why: "Chess is a perfect stress test for real-time systems — every move has to arrive in order, at low latency, with no room for ambiguity. I wanted to build something where performance wasn't an afterthought but the entire design constraint.",
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     techStack: ["TypeScript", "Next.js 15", "Express", "Bun", "Turborepo", "PostgreSQL", "Prisma", "Redis Streams", "Zod", "JWT", "Resend", "Tailwind CSS"],
     links: [
       { url: "https://pingGod.xyz", text: "Visit Site", primary: true },
-      { url: "https://github.com/Abhijitam01/betterUptime", text: "GitHub", primary: false }
+      { url: "https://github.com/Amresh-01/betterUptime", text: "GitHub", primary: false }
     ],
     caseStudy: {
       why: "Every uptime monitoring tool worth using costs money. The free tiers are too limited and the paid tiers are priced for enterprise. I wanted to build a genuinely complete alternative — one you could self-host, own entirely, and configure exactly how you want without a monthly bill.",
@@ -104,10 +104,10 @@ export const projects: Project[] = [
     metrics: ["real-time landmark tracking", "confidence-window smoothing", "CLI calibration flow"],
     techStack: ["TypeScript", "TensorFlow.js", "Node.js", "Canvas API", "CLI"],
     links: [
-      { url: "https://eyeswitch.abhijitamdubey.site", text: "Visit Site", primary: true },
-      { url: "https://github.com/Abhijitam01", text: "GitHub", primary: false }
+      { url: "https://eyeswitch.amreshdevs.vercel.app", text: "Visit Site", primary: true },
+      { url: "https://github.com/Amresh-01", text: "GitHub", primary: false }
     ],
-    launchTweetUrl: "https://x.com/abhijitam_tw",
+    launchTweetUrl: "https://x.com/Amresh__01",
     caseStudy: {
       why: "I kept wondering what interaction looks like when you remove the physical layer entirely. Keyboards and mice are tools we've normalized — but they're not inevitable. EyeSwitch started as a genuine question: what if the only input required was attention?",
       useCase: "Valuable for accessibility research, HCI exploration, and environments where traditional input devices are impractical or unavailable. It demonstrates that gaze-based control can feel natural and responsive — not gimmicky — when the signal processing is done right.",
@@ -128,7 +128,7 @@ export const projects: Project[] = [
     techStack: ["TypeScript", "React", "Next.js", "WebSockets", "PostgreSQL", "Rough.js", "Tailwind CSS", "Canvas API"],
     links: [
       { url: "https://sketchable.space", text: "Visit Site", primary: true },
-      { url: "https://github.com/Abhijitam01/sketchy", text: "GitHub", primary: false }
+      { url: "https://github.com/Amresh-01/sketchy", text: "GitHub", primary: false }
     ],
     caseStudy: {
       why: "I'd used Excalidraw enough to be curious about how it actually works under the hood. Building a canvas drawing tool from scratch seemed like the fastest way to understand rendering performance, input latency, and scene management at a level you can't get from reading code.",
@@ -150,7 +150,7 @@ export const projects: Project[] = [
     techStack: ["TypeScript", "Solana", "Anchor", "Web3.js", "React", "Developer Tools"],
     links: [
       { url: "https://solana-atlas.xyz", text: "Visit Site", primary: true },
-      { url: "https://github.com/Abhijitam01", text: "GitHub", primary: false }
+      { url: "https://github.com/Amresh-01", text: "GitHub", primary: false }
     ],
     caseStudy: {
       why: "Solana's programming model is genuinely different — accounts are separated from programs, instructions compose unexpectedly, and the runtime is strict about compute. Most documentation explains each concept in isolation. I built Solana Atlas to show how they fit together in a single interactive flow.",
@@ -172,7 +172,7 @@ export const projects: Project[] = [
     techStack: ["TypeScript", "React", "ReactFlow", "Zustand", "Vite"],
     links: [
       { url: "#", text: "Coming Soon", primary: true },
-      { url: "https://github.com/Abhijitam01", text: "GitHub", primary: false }
+      { url: "https://github.com/Amresh-01", text: "GitHub", primary: false }
     ],
     launchTweetUrl: "#",
     caseStudy: {
@@ -195,7 +195,7 @@ export const projects: Project[] = [
     techStack: ["TypeScript", "React", "Vite", "Tailwind CSS", "PWA", "html2canvas"],
     links: [
       { url: "#", text: "Coming Soon", primary: true },
-      { url: "https://github.com/Abhijitam01", text: "GitHub", primary: false }
+      { url: "https://github.com/Amresh-01", text: "GitHub", primary: false }
     ],
     launchTweetUrl: "#",
     caseStudy: {
@@ -217,8 +217,8 @@ export const projects: Project[] = [
     metrics: ["SQLite full-text search", "syntax-safe CodeMirror editor", "intent-based tagging"],
     techStack: ["TypeScript", "Next.js", "Prisma", "SQLite", "CodeMirror", "Tailwind CSS", "Zustand"],
     links: [
-      { url: "https://snippetvault.abhijitamdubey.site", text: "Visit Site", primary: true },
-      { url: "https://github.com/Abhijitam01", text: "GitHub", primary: false }
+      { url: "https://snippetvault.amreshdevs.vercel.app", text: "Visit Site", primary: true },
+      { url: "https://github.com/Amresh-01", text: "GitHub", primary: false }
     ],
     caseStudy: {
       why: "I kept rewriting the same utility functions, regex patterns, and config blocks across projects because my snippets were scattered across Notion, old repos, and Slack messages. I wanted a single, fast place to store proven code and retrieve it in seconds — not minutes.",
@@ -239,8 +239,8 @@ export const projects: Project[] = [
     metrics: ["30-second scaffold", "2-hour setup compressed", "deterministic template output"],
     techStack: ["TypeScript", "Node.js", "CLI", "Commander.js", "Handlebars"],
     links: [
-      { url: "https://github.com/Abhijitam01", text: "GitHub", primary: true },
-      { url: "https://github.com/Abhijitam01", text: "GitHub", primary: false }
+      { url: "https://github.com/Amresh-01", text: "GitHub", primary: true },
+      { url: "https://github.com/Amresh-01", text: "GitHub", primary: false }
     ],
     caseStudy: {
       why: "I was setting up the same Turborepo structure for every new project — same folder layout, same shared packages, same config files copied and adjusted. The process was predictable enough to automate, so I did. Errika compresses two hours of setup into 30 seconds.",
@@ -269,9 +269,9 @@ export const projects: Project[] = [
     techStack: ["Next.js 15", "React", "Tailwind CSS", "Framer Motion", "React Flow", "Anthropic Claude SDK", "NextAuth v5", "Prisma", "PostgreSQL", "DodoPayments", "Zustand", "Turborepo"],
     links: [
       { url: "https://antimetal.in", text: "Visit Site", primary: true },
-      { url: "https://github.com/Abhijitam01", text: "GitHub", primary: false }
+      { url: "https://github.com/Amresh-01", text: "GitHub", primary: false }
     ],
-    launchTweetUrl: "https://x.com/abhijitam_tw/status/2046471530490794275?s=20",
+    launchTweetUrl: "https://x.com/Amresh__01/status/2046471530490794275?s=20",
     caseStudy: {
       why: "System design is one of the hardest interview topics to prepare for because every resource teaches it the same way: diagrams in a PDF, theory without feedback. I wanted to build a tool where the act of designing is the lesson — draw an architecture, get told what's wrong, iterate. That loop doesn't exist anywhere else.",
       useCase: "Engineers preparing for system design interviews, developers learning distributed systems fundamentals, and teams onboarding new hires to architectural thinking. The AI feedback loop lets learners get immediate, specific critiques on their own designs rather than comparing against a static 'correct' answer.",
@@ -300,7 +300,7 @@ export const projects: Project[] = [
     techStack: ["TypeScript", "Next.js", "Fastify", "BullMQ", "Redis", "PostgreSQL", "Drizzle ORM", "k6"],
     links: [
       { url: "#", text: "Coming Soon", primary: true },
-      { url: "https://github.com/Abhijitam01", text: "GitHub", primary: false }
+      { url: "https://github.com/Amresh-01", text: "GitHub", primary: false }
     ],
     launchTweetUrl: "#",
     caseStudy: {

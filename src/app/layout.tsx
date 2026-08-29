@@ -11,27 +11,27 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const comingSoon = Coming_Soon({ subsets: ["latin"], weight: ["400"], variable: "--font-signature" });
 
 export const metadata: Metadata = {
-  title: "Abhijitam Dubey - Developer",
+  title: "Amresh Chaurasiya - Developer",
   description: "Software Developer focused on building tools and platforms that make developers' lives easier.",
-  metadataBase: new URL("https://abhijitamdubey.site"),
+  metadataBase: new URL("https://amreshdevs.vercel.app"),
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     shortcut: "/icon.svg",
     apple: "/icon.svg",
   },
   openGraph: {
-    title: "Abhijitam Dubey - Developer",
+    title: "Amresh Chaurasiya - Developer",
     description: "Software Developer focused on building tools and platforms that make developers' lives easier.",
-    url: "https://abhijitamdubey.site",
-    siteName: "Abhijitam Dubey",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Abhijitam Dubey" }],
+    url: "https://amreshdevs.vercel.app",
+    siteName: "Amresh Chaurasiya",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Amresh Chaurasiya" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abhijitam Dubey - Developer",
+    title: "Amresh Chaurasiya - Developer",
     description: "Software Developer focused on building tools and platforms that make developers' lives easier.",
-    creator: "@abhijitam_tw",
+    creator: "@Amresh__01",
     images: ["/og.png"],
   },
 };

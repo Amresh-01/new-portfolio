@@ -39,7 +39,7 @@ export function GitHubGraph() {
           Contribution Activity
         </h2>
         <a
-          href="https://github.com/Abhijitam01"
+          href="https://github.com/Amresh-01"
           target="_blank"
           rel="noopener noreferrer"
           className="github-view-profile"
@@ -52,7 +52,7 @@ export function GitHubGraph() {
         <div className="github-calendar-scroll">
           {mounted && (
             <GitHubCalendar
-              username="Abhijitam01"
+              username="Amresh-01"
               year={currentYear}
               theme={theme}
               colorScheme={colorScheme}

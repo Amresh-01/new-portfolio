@@ -45,16 +45,16 @@ export const openPRs: PR[] = [
   },
   {
     title: "feat: Add moss-connector-postgres data connector",
-    repo: "Abhijitam01/moss",
+    repo: "Amresh-01/moss",
     number: 3,
-    url: "https://github.com/Abhijitam01/moss/pull/3",
+    url: "https://github.com/Amresh-01/moss/pull/3",
     date: "Apr 2026",
   },
   {
     title: "feat: add moss-connector-snowflake",
-    repo: "Abhijitam01/moss",
+    repo: "Amresh-01/moss",
     number: 2,
-    url: "https://github.com/Abhijitam01/moss/pull/2",
+    url: "https://github.com/Amresh-01/moss/pull/2",
     date: "Apr 2026",
   },
   {
@@ -87,9 +87,9 @@ export const openPRs: PR[] = [
   },
   {
     title: "From CSS to Tailwind and reusable UI",
-    repo: "Abhijitam01/antimetal",
+    repo: "Amresh-01/antimetal",
     number: 1,
-    url: "https://github.com/Abhijitam01/antimetal/pull/1",
+    url: "https://github.com/Amresh-01/antimetal/pull/1",
     date: "Apr 2026",
   },
   {
@@ -129,9 +129,9 @@ export const openPRs: PR[] = [
   },
   {
     title: "migrating from react to turbo-monorepo",
-    repo: "Abhijitam01/chess",
+    repo: "Amresh-01/chess",
     number: 2,
-    url: "https://github.com/Abhijitam01/chess/pull/2",
+    url: "https://github.com/Amresh-01/chess/pull/2",
     date: "Feb 2026",
   },
   {
@@ -153,30 +153,30 @@ export const openPRs: PR[] = [
 export const mergedPRs: PR[] = [
   {
     title: "feat: auto-create PR after successful test run (fixes #76)",
-    repo: "Abhijitam01/expect",
+    repo: "Amresh-01/expect",
     number: 1,
-    url: "https://github.com/Abhijitam01/expect/pull/1",
+    url: "https://github.com/Amresh-01/expect/pull/1",
     date: "Apr 2026",
   },
   {
     title: "feat: add Semantic Kernel plugin for Moss semantic search",
-    repo: "Abhijitam01/moss",
+    repo: "Amresh-01/moss",
     number: 1,
-    url: "https://github.com/Abhijitam01/moss/pull/1",
+    url: "https://github.com/Amresh-01/moss/pull/1",
     date: "Apr 2026",
   },
   {
     title: "migrating from react to turbo-monorepo",
-    repo: "Abhijitam01/chess",
+    repo: "Amresh-01/chess",
     number: 1,
-    url: "https://github.com/Abhijitam01/chess/pull/1",
+    url: "https://github.com/Amresh-01/chess/pull/1",
     date: "Feb 2026",
   },
   {
     title: "Analyze github repo commit history",
-    repo: "Abhijitam01/Devstory",
+    repo: "Amresh-01/Devstory",
     number: 1,
-    url: "https://github.com/Abhijitam01/Devstory/pull/1",
+    url: "https://github.com/Amresh-01/Devstory/pull/1",
     date: "Oct 2025",
   },
   {
@@ -195,16 +195,16 @@ export const mergedPRs: PR[] = [
   },
   {
     title: "adding the test cases",
-    repo: "Abhijitam01/todoai",
+    repo: "Amresh-01/todoai",
     number: 2,
-    url: "https://github.com/Abhijitam01/todoai/pull/2",
+    url: "https://github.com/Amresh-01/todoai/pull/2",
     date: "Jun 2025",
   },
   {
     title: "feat: add backend queue system for AI",
-    repo: "Abhijitam01/todoai",
+    repo: "Amresh-01/todoai",
     number: 1,
-    url: "https://github.com/Abhijitam01/todoai/pull/1",
+    url: "https://github.com/Amresh-01/todoai/pull/1",
     date: "Jun 2025",
   },
   {

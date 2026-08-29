@@ -10,7 +10,7 @@ export function Footer() {
           <div className="footer-brand-mark">
             <Image 
               src="/signature.png" 
-              alt="Abhijitam Dubey" 
+              alt="Amresh Chaurasiya" 
               width={200} 
               height={60} 
               className="footer-signature"
@@ -28,14 +28,14 @@ export function Footer() {
               height={48} 
               className="footer-logotype-mark"
             />
-            <span className="footer-logotype-name">Abhijitam Dubey</span>
+            <span className="footer-logotype-name">Amresh Chaurasiya</span>
           </div>
         </div>
       </div>
 
       {}
       <div className="footer-bottom">
-        <p className="footer-copyright">© 2026 Abhijitam Dubey. All rights reserved.</p>
+        <p className="footer-copyright">© 2026 Amresh Chaurasiya. All rights reserved.</p>
 <div className="footer-icons">
           <span className="footer-icon" title="Frontend">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

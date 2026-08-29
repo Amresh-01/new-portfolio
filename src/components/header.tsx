@@ -9,8 +9,8 @@ import { useVisitors } from "@/contexts/visitor-context";
 const socialCards = [
   {
     platform: "X (formerly Twitter)",
-    handle: "@abhijitam_tw",
-    href: "https://x.com/abhijitam_tw",
+    handle: "@Amresh__01",
+    href: "https://x.com/Amresh__01",
     bg: "#000000",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
@@ -20,8 +20,8 @@ const socialCards = [
   },
   {
     platform: "GitHub",
-    handle: "Abhijitam01",
-    href: "https://github.com/Abhijitam01",
+    handle: "Amresh-01",
+    href: "https://github.com/Amresh-01",
     bg: "#000000",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
@@ -31,8 +31,8 @@ const socialCards = [
   },
   {
     platform: "LinkedIn",
-    handle: "abhijitam-dubey",
-    href: "https://www.linkedin.com/in/abhijitam-dubey-3ab794263/",
+    handle: "amresh-chaurasiya",
+    href: "https://www.linkedin.com/in/amresh-chaurasiya-/",
     bg: "#000000",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
@@ -42,8 +42,8 @@ const socialCards = [
   },
   {
     platform: "Email",
-    handle: "work.abhijitam",
-    href: "mailto:work.abhijitam@gmail.com",
+    handle: "amresh.codes@gmail.com",
+    href: "mailto:amresh.codes@gmail.com",
     bg: "#000000",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -107,14 +107,14 @@ export function Header() {
               <div className="hero-avatar-img">
                 {isTwitter ? (
                   <img
-                    src="https://unavatar.io/x/abhijitam_tw"
-                    alt="@abhijitam_tw"
+                    src="https://unavatar.io/x/Amresh__01"
+                    alt="@Amresh__01"
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   />
                 ) : (
                   <Image
                     src="/me.png"
-                    alt="Abhijitam Dubey"
+                    alt="Amresh Chaurasiya"
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="200px"
@@ -142,7 +142,7 @@ export function Header() {
           </button>
           <div className="hero-name-row">
             <h2 className="hero-name">
-              {isTwitter ? "@abhijitam_tw" : "Abhijitam Dubey"}
+              {isTwitter ? "@Amresh__01" : "Amresh Chaurasiya"}
             </h2>
             <svg
               viewBox="0 0 24 24"
@@ -171,7 +171,7 @@ export function Header() {
           <InfoRow icon={<Clock size={13} />} text={<><span className="info-time" suppressHydrationWarning>{londonTime ?? "--:--"}</span> London (GMT)</>} />
         </div>
         <div className="hero-info-grid">
-          <InfoRow icon={<Mail size={13} />} text={<a href="mailto:work.abhijitam@gmail.com" className="info-link">work.abhijitam@gmail.com</a>} />
+          <InfoRow icon={<Mail size={13} />} text={<a href="mailto:amresh.codes@gmail.com" className="info-link">amresh.codes@gmail.com</a>} />
           <InfoRow icon={<Globe size={13} />} text={<a href="https://abhijitamdubey.site" target="_blank" rel="noopener noreferrer" className="info-link">abhijitamdubey.site</a>} />
         </div>
       </div>
