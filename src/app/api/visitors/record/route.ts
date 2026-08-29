@@ -162,6 +162,7 @@ function buildResponse(db: VisitorDB) {
     city,
     country,
   }));
+
   return {
     count: db.uniqueVisitors,
     visitors: publicVisitors,
@@ -217,7 +218,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         [code]: {
           name: geo.country,
           flag: geo.flag,
-          count: (existing?.count ?? 0) + 1,
+          count: (existing?.count ?? 0) + (isNew ? 1 : 0),
           cities,
         },
       };
