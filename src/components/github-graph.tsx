@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { GitHubCalendar } from "react-github-calendar";
 import { useTheme } from "next-themes";
 
@@ -12,10 +12,27 @@ interface TooltipState {
 
 export function GitHubGraph() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [inView, setInView] = useState(false);
   const [tooltip, setTooltip] = useState<TooltipState | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" } // Load a bit before it comes into view
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const currentYear = new Date().getFullYear();
   const colorScheme = resolvedTheme === "light" ? "light" : "dark";
@@ -32,7 +49,7 @@ export function GitHubGraph() {
   };
 
   return (
-    <section className="github-section">
+    <section className="github-section" ref={containerRef}>
       <div className="github-section-header">
         <span className="section-title">GitHub</span>
         <h2 className="section-heading" style={{ marginBottom: "0.25rem" }}>
@@ -49,8 +66,8 @@ export function GitHubGraph() {
       </div>
 
       <div className="github-calendar-wrap">
-        <div className="github-calendar-scroll">
-          {mounted && (
+        <div className="github-calendar-scroll" style={{ minHeight: "150px" }}>
+          {inView && (
             <GitHubCalendar
               username="Amresh-01"
               year={currentYear}
@@ -98,4 +115,4 @@ export function GitHubGraph() {
       </p>
     </section>
   );
-}
+}
