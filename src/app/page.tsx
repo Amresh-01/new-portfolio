@@ -12,6 +12,7 @@ import { ReadingSection } from "@/components/reading";
 import { PageContent } from "@/components/page-content";
 import { VisitorsMap } from "@/components/visitors-map";
 import { CountryList } from "@/components/country-list";
+import Script from "next/script";
 
 const HOME_PROJECT_IDS = ["agentos", "loadforge", "pulsewatch", "graphmind"];
 const homeProjects = HOME_PROJECT_IDS
@@ -21,8 +22,27 @@ const homeProjects = HOME_PROJECT_IDS
 
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Amresh Chaurasiya",
+    "url": "https://amreshdev.me",
+    "jobTitle": "Backend Engineer",
+    "knowsAbout": ["Node.js", "TypeScript", "PostgreSQL", "Redis", "AWS", "Docker", "Kubernetes", "AI Systems", "Scalable Backend Systems"],
+    "sameAs": [
+      "https://github.com/Amresh-01",
+      "https://www.linkedin.com/in/amresh-chaurasiya-/",
+      "https://x.com/Amresh__01"
+    ]
+  };
+
   return (
     <main>
+      <Script
+        id="json-ld-person"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SiteNav />
       <PageContent>
         <Header />

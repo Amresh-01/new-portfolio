@@ -14,7 +14,7 @@ const portfolioData = {
     location: "New Delhi, India",
     timezone: "IST (UTC+5:30)",
     email: "amresh.codes@gmail.com",
-    website: "amreshdevs.vercel.app",
+    website: "https://amreshdev.me",
     github: "https://github.com/Amresh-01",
     twitter: "https://x.com/Amresh__01",
     linkedin: "https://www.linkedin.com/in/amresh-chaurasiya-b589b3249/",

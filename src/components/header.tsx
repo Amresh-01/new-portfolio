@@ -110,6 +110,7 @@ export function Header() {
                     src="https://unavatar.io/x/Amresh__01"
                     alt="@Amresh__01"
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    fetchPriority="high"
                   />
                 ) : (
                   <Image
@@ -141,9 +142,9 @@ export function Header() {
             <SwapIcon />
           </button>
           <div className="hero-name-row">
-            <h2 className="hero-name">
+            <h1 className="hero-name">
               {isTwitter ? "@Amresh__01" : "Amresh Chaurasiya"}
-            </h2>
+            </h1>
             <svg
               viewBox="0 0 24 24"
               aria-label="Verified"
@@ -172,7 +173,7 @@ export function Header() {
         </div>
         <div className="hero-info-grid">
           <InfoRow icon={<Mail size={13} />} text={<a href="mailto:amresh.codes@gmail.com" className="info-link">amresh.codes@gmail.com</a>} />
-          <InfoRow icon={<Globe size={13} />} text={<a href="https://amreshdevs.vercel.app" target="_blank" rel="noopener noreferrer" className="info-link">amreshdevs.vercel.app</a>} />
+          <InfoRow icon={<Globe size={13} />} text={<a href="https://amreshdev.me" target="_blank" rel="noopener noreferrer" className="info-link">amreshdev.me</a>} />
         </div>
       </div>
 
@@ -189,7 +190,7 @@ export function Header() {
               {card.icon}
             </div>
             <div className="hero-social-text">
-              <h3 className="hero-social-platform">{card.platform}</h3>
+              <span className="hero-social-platform">{card.platform}</span>
               <p className="hero-social-handle">{card.handle}</p>
             </div>
             <ArrowUpRight size={15} className="hero-social-arrow" />

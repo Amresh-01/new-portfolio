@@ -11,9 +11,9 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const comingSoon = Coming_Soon({ subsets: ["latin"], weight: ["400"], variable: "--font-signature" });
 
 export const metadata: Metadata = {
-  title: "Amresh Chaurasiya - Developer",
-  description: "Software Developer focused on building tools and platforms that make developers' lives easier.",
-  metadataBase: new URL("https://amreshdevs.vercel.app"),
+  title: "Amresh Chaurasiya — Software Engineer",
+  description: "Backend engineer building scalable systems, AI-powered applications, and developer infrastructure with Node.js, TypeScript, PostgreSQL, Redis, AWS, and Docker.",
+  metadataBase: new URL("https://amreshdev.me"),
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     shortcut: "/icon.svg",

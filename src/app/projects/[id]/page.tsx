@@ -23,9 +23,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title: `${project.title} — Amresh Chaurasiya`,
     description: project.description,
+    alternates: {
+      canonical: `https://amreshdev.me/projects/${project.id}`,
+    },
     openGraph: {
       title: `${project.title} — Amresh Chaurasiya`,
       description: project.description,
+      url: `https://amreshdev.me/projects/${project.id}`,
       images: [{ url: project.image }],
       type: "website",
     },
@@ -54,8 +58,25 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (project.status === "Live") statusClass = "project-status-live";
   if (project.status === "Prototype") statusClass = "project-status-prototype";
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": project.title,
+    "applicationCategory": "DeveloperApplication",
+    "description": project.description,
+    "url": `https://amreshdev.me/projects/${project.id}`,
+    "author": {
+      "@type": "Person",
+      "name": "Amresh Chaurasiya"
+    }
+  };
+
   return (
     <main className="premium-project-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="premium-page-shell">
         <Link href="/projects" className="premium-back-link">
           <ArrowLeft size={16} />
