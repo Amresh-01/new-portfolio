@@ -8,8 +8,8 @@ const EMPTY_ENTITIES: TweetEntities = {
 };
 
 type TweetWithEntities = {
-  entities: TweetEntities;
-  quoted_tweet?: QuotedTweet;
+  entities?: any;
+  quoted_tweet?: any;
 };
 
 export function normalizeTweetEntities<T extends TweetWithEntities>(
@@ -32,5 +32,5 @@ export function normalizeTweetEntities<T extends TweetWithEntities>(
 }
 
 export function normalizeFetchedTweet(tweet: Tweet): Tweet {
-  return normalizeTweetEntities(tweet);
+  return normalizeTweetEntities(tweet as any) as unknown as Tweet;
 }

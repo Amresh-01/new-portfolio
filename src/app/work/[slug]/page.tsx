@@ -113,7 +113,7 @@ export default async function WorkCaseStudyPage({ params }: Props) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground underline-offset-4 hover:underline"
               >
-                {externalHost(product.liveUrl, product.name)}
+                {externalHost(product.liveUrl || '', product.name)}
                 <ExternalLink className="h-3.5 w-3.5" strokeWidth={1.5} />
               </a>
               <a

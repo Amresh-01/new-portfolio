@@ -1,5 +1,5 @@
-import { streamText, convertToCoreMessages } from 'ai';
-import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { streamText } from 'ai';
+import { createGroq } from '@ai-sdk/groq';
 
 import { PORTFOLIO_CONTEXT } from '@/lib/chatContext';
 
@@ -16,27 +16,24 @@ export async function POST(request: Request) {
       );
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
       return Response.json(
-        { error: 'GEMINI_API_KEY is not configured' },
+        { error: 'GROQ_API_KEY is not configured' },
         { status: 500 }
       );
     }
 
-    // Create Google provider with API key
-    const googleAI = createGoogleGenerativeAI({
+    // Create Groq provider with API key
+    const groq = createGroq({
       apiKey: apiKey,
     });
 
-    // Convert messages to core messages format
-    const coreMessages = convertToCoreMessages(messages);
-
     // Stream the response using AI SDK
     const result = streamText({
-      model: googleAI('models/gemini-2.5-flash'),
+      model: groq('llama-3.1-8b-instant'),
       system: PORTFOLIO_CONTEXT,
-      messages: coreMessages,
+      messages: messages as any,
       temperature: 0.7,
     });
 
