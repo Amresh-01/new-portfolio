@@ -1,43 +1,65 @@
-import Link from "next/link";
-import { SiteNav } from "@/components/site-nav";
-import { ProjectsGrid } from "@/components/projects-grid";
-import type { Metadata } from "next";
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
+import { experiences } from '@/data/experiences';
+import { ExperienceWorkAccordion } from '@/components/ExperienceWorkAccordion';
+import { EXPERIENCE_STATS, isCurrentRole } from '@/lib/experienceMeta';
 
-export const metadata: Metadata = {
-  title: "Projects — Amresh Chaurasiya",
-  description: "A collection of scalable backend systems, AI-powered applications, and developer infrastructure built by Amresh Chaurasiya.",
-  openGraph: {
-    title: "Projects — Amresh Chaurasiya",
-    description: "A collection of scalable backend systems, AI-powered applications, and developer infrastructure built by Amresh Chaurasiya.",
-    url: "https://amreshdev.me/projects",
-    type: "website",
-  },
-};
+export default function ProjectsIndexPage() {
+  const sorted = [
+    ...experiences.filter(isCurrentRole),
+    ...experiences.filter(exp => !isCurrentRole(exp)),
+  ];
 
-export default function ProjectsPage() {
   return (
-    <main>
-      <SiteNav />
-
-      <div className="projects-page-header">
-        <Link href="/" className="projects-back-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 12H5M12 5l-7 7 7 7"/>
-          </svg>
-          Back
+    <div className="min-h-screen bg-background text-foreground">
+      <div
+        className="pointer-events-none fixed inset-0 -z-10 opacity-[0.35]"
+        aria-hidden
+        style={{
+          backgroundImage:
+            'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(40 25% 94%), transparent), radial-gradient(ellipse 60% 40% at 100% 0%, hsl(172 15% 94% / 0.5), transparent)',
+        }}
+      />
+      <main className="mx-auto max-w-3xl px-6 pb-16 pt-8 md:pb-14 md:pt-12">
+        <Link
+          href="/#experience"
+          className="mb-8 inline-flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
+          Back to home
         </Link>
-        <h1 className="projects-page-title">Projects</h1>
-      </div>
 
-      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 1.5rem", marginBottom: "2rem", color: "var(--color-text-secondary)", lineHeight: "1.6" }}>
-        <p>
-          I build scalable backend systems, AI-powered applications, and reliable developer infrastructure.
-          Below are some of my featured systems and applications focusing on performance, robust architecture, and real-world utility.
-        </p>
-      </div>
+        <header className="mb-10">
+          <h1 className="font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            Work experience
+          </h1>
+          <p className="mt-3 max-w-prose text-sm leading-relaxed text-muted-foreground md:text-base">
+            Expand a role for a preview, or open the full page for
+            contributions, PRs, and references.
+          </p>
+          <p className="mt-4 font-mono text-xs text-muted-foreground">
+            <span className="font-medium tabular-nums text-foreground">
+              {EXPERIENCE_STATS.mergedPRs}
+            </span>{' '}
+            merged PRs career-wide ·{' '}
+            <span className="font-medium text-foreground">
+              {EXPERIENCE_STATS.bountyTotal}
+            </span>{' '}
+            OSS bounties
+          </p>
+        </header>
 
-      <ProjectsGrid />
+        <ExperienceWorkAccordion items={sorted} />
 
-          </main>
+        <div className="mt-10 flex justify-center border-t border-line pt-8">
+          <Link
+            href="/blog"
+            className="font-mono text-xs font-medium uppercase tracking-wide text-muted-foreground underline-offset-4 transition-colors hover:text-foreground"
+          >
+            Read the blog →
+          </Link>
+        </div>
+      </main>
+    </div>
   );
 }

@@ -1,0 +1,78 @@
+# Amresh Chaurasiya — llms.txt
+# Machine-readable profile following the llms.txt convention.
+# Human-readable version: https://amreshdev.me
+
+## identity
+name: Amresh Chaurasiya
+role: AI Native Full Stack Developer
+location: Ghaziabad, India
+email: amresh.codes@gmail.com
+status: AI Native Full Stack Developer at Valoron Consulting. Building Fanito, an AI-powered social platform across frontend, backend, data, and AI-driven product workflows.
+
+## links
+site: https://amreshdev.me
+github: https://github.com/Amresh-01
+twitter: https://x.com/Amresh__01
+llms: https://amreshdev.me/llms.txt
+
+## current
+- Valoron Consulting — AI Native Full Stack Developer, Aug 2026–present
+  Building Fanito, an AI-powered social platform.
+  Designing and implementing feed-ranking systems that combine user behavior, content signals, engagement, and author diversity.
+  Developing AI-powered features including Economic Health Score and Smart Task Assignment.
+  Engineering the platform on Supabase with PostgreSQL, authentication, APIs, and scalable architecture.
+  Stack: Next.js, Supabase, Postgres
+
+## experience
+- InsForge — Open Source Contributor, 2026
+  Contributed to the InsForge codebase by identifying and resolving dependency security issues in the frontend stack.
+  Stack: React, TypeScript
+
+- Robocurve — Open Source Contributor, 2026
+  Contributed production-focused fixes and improvements to Robocurve's open-source codebase.
+  Stack: TypeScript
+
+- API Dash — Open Source Contributor, 2026
+  Contributed engineering improvements to API Dash, an open-source API development and testing platform.
+  Stack: Node.js
+
+- Twenty — Open Source Contributor, 2026
+  Contributed to Twenty, an open-source CRM platform. Implemented fixes and improvements that were successfully merged into the core codebase.
+  Stack: TypeScript, React
+
+## projects
+- AgentOS (2026, Building) — Self-hosted AI agent operating system
+  GitHub: https://github.com/Amresh-01
+  A robust platform for orchestrating autonomous workflows, tools, workers, and persistent memory using a Planner/Supervisor architecture.
+  Stack: Next.js, Python, FastAPI, Postgres, Redis, Docker
+
+- LoadForge (2026, Building) — Self-hosted API load testing
+  Enterprise-grade API load testing with real-time performance metrics and AI-assisted bottleneck diagnosis orchestrating k6 load generators via distributed workers.
+  Stack: Next.js, TypeScript, Redis, Postgres, Docker
+
+- PulseWatch (2026, Building) — Incident management platform
+  A self-hosted uptime monitoring and incident management platform for developers and small engineering teams built around a robust distributed worker pipeline.
+  Stack: Next.js, Node.js, Redis, Postgres, Docker
+
+- GraphMind (2025, Prototype) — AI-powered knowledge system
+  Transforms unstructured documents into connected, queryable knowledge using a Hybrid Retrieval (Graph + Vector) reasoning system.
+  Stack: Next.js, FastAPI, Python, Postgres, Neo4j
+
+- Canteeno (2024, Live) — High-concurrency food ordering
+  Site: https://canteeno-peach.vercel.app/
+  A full-stack backend application handling high-concurrency food ordering and cafeteria management with decoupled API architecture.
+  Stack: Node.js, Express, MongoDB, React, Redis
+
+- HealthcareAI (2024, Live) — AI-assisted healthcare platform
+  Site: https://healhcare-ai.vercel.app/
+  Features a RAG-based MediBot, NLP symptom analysis, and XGBoost disease prediction within a unified patient-doctor ecosystem.
+  Stack: React, Node.js, MongoDB, Redis
+
+## education
+- Ajay Kumar Garg Engineering College, Ghaziabad — B.Tech, Computer Science Engineering, Aug 2023–May 2027 (expected)
+
+## skills
+Frontend: Next.js, React.js, TypeScript, TailwindCSS
+Backend: Node.js, Express, Python, FastAPI
+Databases: PostgreSQL, MongoDB, Redis, Neo4j, Supabase
+Systems & DevOps: Docker

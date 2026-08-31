@@ -1,40 +1,71 @@
-import type { Metadata } from "next";
-import { Inter, Outfit, Coming_Soon } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
-import { AgentModeProvider } from "@/contexts/agent-mode";
-import { VisitorProvider } from "@/contexts/visitor-context";
-import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
-const comingSoon = Coming_Soon({ subsets: ["latin"], weight: ["400"], variable: "--font-signature" });
+import type { Metadata } from 'next';
+import './globals.css';
+import Providers from '@/provider/providers';
+import { PreloadAvatar } from '@/components/PreloadAvatar';
+import { SiteNav } from '@/components/SiteNav';
+import { JsonLd } from '@/components/JsonLd';
+import { fontVariables } from '@/lib/fonts';
+import { createOgMetadata, DEFAULT_OG } from '@/lib/og';
+import { SITE_NAME, SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: "Amresh Chaurasiya — Software Engineer",
-  description: "Backend engineer building scalable systems, AI-powered applications, and developer infrastructure with Node.js, TypeScript, PostgreSQL, Redis, AWS, and Docker.",
-  metadataBase: new URL("https://amreshdev.me"),
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: DEFAULT_OG.title,
+    template: '%s · Amresh Chaurasiya',
+  },
+  description: DEFAULT_OG.description,
+  authors: [{ name: 'Amresh Chaurasiya', url: SITE_URL }],
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
-  openGraph: {
-    title: "Amresh Chaurasiya - Developer",
-    description: "Software Developer focused on building tools and platforms that make developers' lives easier.",
-    url: "https://amreshdevs.vercel.app",
-    siteName: "Amresh Chaurasiya",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Amresh Chaurasiya" }],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Amresh Chaurasiya - Developer",
-    description: "Software Developer focused on building tools and platforms that make developers' lives easier.",
-    creator: "@Amresh__01",
-    images: ["/og.png"],
-  },
+  manifest: '/site.webmanifest',
+  ...createOgMetadata(),
 };
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: SITE_URL,
+    description:
+      'AI Native Full Stack Developer. Building Fanito and contributing to open source.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: SITE_NAME,
+    url: SITE_URL,
+    jobTitle: 'AI Native Full Stack Developer',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Valoron Consulting',
+    },
+    sameAs: [
+      'https://github.com/Amresh-01',
+      'https://x.com/Amresh__01',
+    ],
+  },
+];
 
 export default function RootLayout({
   children,
@@ -42,22 +73,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${outfit.variable} ${comingSoon.variable}`}>
-        <AgentModeProvider>
-          <VisitorProvider>
-            <ThemeProvider
-              attribute="data-theme"
-              defaultTheme="dark"
-              enableSystem={false}
-            >
-              <div className="main-wrapper">
-                {children}
-              </div>
-            </ThemeProvider>
-          </VisitorProvider>
-        </AgentModeProvider>
-        <Analytics />
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <JsonLd data={structuredData} />
+      </head>
+      <body
+        className={`${fontVariables} paper-grain font-sans antialiased bg-background text-foreground`}
+      >
+        <PreloadAvatar />
+        <SiteNav />
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

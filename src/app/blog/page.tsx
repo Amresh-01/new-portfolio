@@ -1,52 +1,63 @@
-import Link from "next/link";
-import { SiteNav } from "@/components/site-nav";
-import { ArrowUpRight, ArrowLeft } from "lucide-react";
-import { blogPosts } from "@/data/blog";
+import Link from 'next/link';
+import { getBlogPosts } from '@/data/blogPosts';
+import BlogSocials from '@/components/BlogSocials';
 
 export default function BlogPage() {
+  const blogPosts = getBlogPosts();
+
   return (
-    <main>
-      <SiteNav />
+    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+      <main className="relative z-10 px-6 md:px-0">
+        <div className="mx-auto max-w-2xl pb-12 pt-8 md:pb-16 md:pt-12">
+          <header className="md:mt-0 mb-12 sm:mb-16">
+            <div className="flex flex-col md:flex-row justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+                  <Link
+                    href="/"
+                    className="mb-4 text-left text-foreground underline-offset-4 hover:underline"
+                  >
+                    Amresh Chaurasiya
+                  </Link>
+                </h1>
+                <p className="mt-2 text-sm text-muted-foreground sm:text-base">
+                  Engineer · Open source contributor · Contracts
+                </p>
+              </div>
+              <BlogSocials />
+            </div>
+          </header>
 
-      <div className="blog-page-header">
-        <Link href="/" className="projects-back-link">
-          <ArrowLeft size={14} />
-          Back
-        </Link>
-        <h1 className="blog-page-title">Writing</h1>
-        <p className="blog-page-subtitle">
-          Notes on building software, shipping products, and things I pick up along the way.
-        </p>
-      </div>
-
-      <div className="blog-post-list">
-        {blogPosts.map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-post-item-link">
-            <article className="blog-post-item">
-              <div className="blog-post-meta">
-                <time className="blog-post-date" dateTime={post.isoDate}>
-                  {post.date}
-                </time>
-                <div className="blog-post-tags">
-                  {post.tags.map((tag) => (
-                    <span key={tag} className="blog-tag">
-                      {tag}
+          <div className="mt-4 sm:mt-8 md:mt-16">
+            <section className="space-y-4 sm:space-y-6">
+              {blogPosts.map(post => (
+                <article key={post.slug} className="group">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="inline-flex flex-wrap items-baseline gap-x-2 sm:gap-x-3 gap-y-1"
+                  >
+                    <span className="text-base sm:text-lg font-medium underline underline-offset-4 decoration-muted-foreground/40 group-hover:decoration-foreground transition-colors">
+                      {post.title}
                     </span>
-                  ))}
-                </div>
-              </div>
-              <div className="blog-post-content">
-                <h2 className="blog-post-title">{post.title}</h2>
-                <p className="blog-post-excerpt">{post.excerpt}</p>
-                <span className="blog-post-link">
-                  Read post <ArrowUpRight size={14} />
-                </span>
-              </div>
-            </article>
-          </Link>
-        ))}
-      </div>
-
-          </main>
+                    {post.isNew && (
+                      <span className="rounded-md border border-line bg-spot-teal px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wide text-spot-teal-fg">
+                        New
+                      </span>
+                    )}
+                    <span className="font-mono text-xs text-muted-foreground sm:text-sm tabular-nums">
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                      })}
+                    </span>
+                  </Link>
+                </article>
+              ))}
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
   );
 }
