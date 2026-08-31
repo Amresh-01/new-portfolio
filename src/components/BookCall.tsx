@@ -47,6 +47,10 @@ export const BookCall = () => {
           <p className="text-sm text-muted-foreground">
             Founders · Engineers · HRs
           </p>
+          <div className="mx-auto mt-4 max-w-md rounded-lg border border-line bg-canvas-muted/50 p-3 text-left md:text-center text-[13px] leading-relaxed text-foreground/80">
+            <strong>Availability:</strong> 12:00 PM to late night (IST).<br className="hidden md:block" /> 
+            <em>The calendar automatically converts all slots to your local time zone.</em> If you are booking from the US, Mexico, or another timezone that doesn't perfectly align with my normal hours, please go ahead and book anyway—I am highly flexible and happy to accommodate!
+          </div>
         </div>
 
         <div className="cal-booking-shell overflow-hidden rounded-lg border border-line bg-card shadow-[0_1px_2px_rgba(47,52,55,0.04)]">

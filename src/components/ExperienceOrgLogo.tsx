@@ -32,7 +32,6 @@ export function ExperienceOrgLogo({
       width={dim}
       height={dim}
       sizes={`${dim}px`}
-      quality={90}
       className="rounded-md object-contain"
       unoptimized={isRemote || logo.endsWith('.svg')}
     />
