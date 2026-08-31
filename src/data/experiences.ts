@@ -32,6 +32,7 @@ export type Experience = {
   mergedPRsRepo?: string;
   careerMergedPRs?: string;
   location?: string;
+  isYc?: boolean;
 };
 
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
@@ -78,6 +79,7 @@ export const experiences: Experience[] = [
     company: 'InsForge',
     role: 'Open Source Contributor',
     period: '2026',
+    isYc: true,
     logo: 'insforge.svg',
     link: 'https://github.com/InsForge',
     totalPRs: '3',
@@ -111,6 +113,7 @@ export const experiences: Experience[] = [
     company: 'Robocurve',
     role: 'Open Source Contributor',
     period: '2026',
+    isYc: true,
     logo: 'robocurve.svg',
     link: 'https://github.com/Robocurve',
     totalPRs: '3',
@@ -160,6 +163,7 @@ export const experiences: Experience[] = [
     company: 'Twenty',
     role: 'Open Source Contributor',
     period: '2026',
+    isYc: true,
     logo: 'twentyhq.svg',
     link: 'https://github.com/twentyhq/twenty',
     totalPRs: '1',

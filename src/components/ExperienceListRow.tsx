@@ -3,6 +3,7 @@ import { ChevronRight } from 'lucide-react';
 import type { Experience } from '@/data/experiences';
 import { companyToSlug } from '@/lib/experienceSlug';
 import { ExperienceOrgLogo } from '@/components/ExperienceOrgLogo';
+import { YcLogo } from '@/components/YcLogo';
 
 type ExperienceListRowProps = {
   exp: Experience;
@@ -17,6 +18,7 @@ export function ExperienceListRow({
 }: ExperienceListRowProps) {
   const slug = companyToSlug(exp.company);
   const isCurrent = exp.isCurrent === true;
+  const isYc = exp.isYc === true;
   const location = exp.location;
 
   return (
@@ -50,6 +52,15 @@ export function ExperienceListRow({
           {exp.badge && (
             <span className="rounded-full border border-accent/20 bg-accent/8 px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wide text-accent">
               {exp.badge}
+            </span>
+          )}
+          {isYc && (
+            <span
+              className="inline-flex items-center gap-1 rounded-full border border-[#FB651E]/20 bg-[#FB651E]/10 px-2 py-0.5 font-mono text-[10px] font-medium tracking-wide text-[#FB651E]"
+              title="Backed by Y Combinator"
+            >
+              <YcLogo className="h-2.5 w-2.5" />
+              YC Backed
             </span>
           )}
         </span>

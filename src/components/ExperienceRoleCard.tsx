@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import type { ExperienceEntry } from '@/lib/experienceMeta';
 import { companyToSlug } from '@/lib/experienceSlug';
 import { ExperienceOrgLogo } from '@/components/ExperienceOrgLogo';
+import { YcLogo } from '@/components/YcLogo';
 
 type ExperienceRoleCardProps = {
   exp: ExperienceEntry;
@@ -18,6 +19,7 @@ export function ExperienceRoleCard({
   const badge = 'badge' in exp ? exp.badge : undefined;
   const highlights = 'highlights' in exp ? exp.highlights : undefined;
   const isCurrent = 'isCurrent' in exp && exp.isCurrent;
+  const isYc = 'isYc' in exp && exp.isYc;
 
   if (isFeatured) {
     return (
@@ -50,6 +52,15 @@ export function ExperienceRoleCard({
               {badge && (
                 <span className="inline-flex items-center rounded-md border border-accent/25 bg-accent/10 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wide text-accent">
                   {badge}
+                </span>
+              )}
+              {isYc && (
+                <span
+                  className="inline-flex items-center gap-1.5 rounded-md border border-[#FB651E]/20 bg-[#FB651E]/10 px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wide text-[#FB651E]"
+                  title="Backed by Y Combinator"
+                >
+                  <YcLogo className="h-3 w-3" />
+                  YC Backed
                 </span>
               )}
             </div>
@@ -110,6 +121,15 @@ export function ExperienceRoleCard({
           {badge && (
             <span className="inline-flex rounded-md border border-accent/20 bg-accent/8 px-1.5 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wide text-accent">
               {badge}
+            </span>
+          )}
+          {isYc && (
+            <span
+              className="inline-flex items-center gap-1 rounded-md border border-[#FB651E]/20 bg-[#FB651E]/10 px-1.5 py-0.5 font-mono text-[10px] font-medium tracking-wide text-[#FB651E]"
+              title="Backed by Y Combinator"
+            >
+              <YcLogo className="h-2.5 w-2.5" />
+              YC Backed
             </span>
           )}
         </span>
