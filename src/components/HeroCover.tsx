@@ -122,11 +122,11 @@ export function HeroCover() {
                   <span className="min-w-0 text-pretty">
                     More than{' '}
                     <span className="font-mono text-[0.95em] tabular-nums text-foreground">
-                      463
+                      30+
                     </span>{' '}
                     merged pull requests at{' '}
                     <span className="font-mono text-[0.95em] tabular-nums text-foreground">
-                      8
+                      5
                     </span>{' '}
                     organizations.
                   </span>
