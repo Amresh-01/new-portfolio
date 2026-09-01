@@ -6,6 +6,7 @@ import { ExperienceOrgContributions } from '@/components/ExperienceOrgContributi
 import { ExperienceOrgLogo } from '@/components/ExperienceOrgLogo';
 import { getExperienceBySlug, getExperienceSlugs } from '@/lib/experienceSlug';
 import { EXPERIENCE_STATS } from '@/lib/experienceMeta';
+import { fetchPullRequestsForRepos } from '@/lib/github-prs';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -44,6 +45,20 @@ export default async function ProjectOrgPage({ params }: Props) {
   if (!exp) {
     notFound();
   }
+
+  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Anshgrover23';
+  const contributions = JSON.parse(JSON.stringify(exp.contributions)) as typeof exp.contributions;
+
+  await Promise.all(
+    contributions.map(async (contribution) => {
+      if (contribution.githubRepos && contribution.githubRepos.length > 0) {
+        const prs = await fetchPullRequestsForRepos(contribution.githubRepos, username);
+        if (prs.length > 0) {
+          contribution.pullRequests = prs;
+        }
+      }
+    })
+  );
 
   const stack = exp.techStack ?? [];
   const badge = 'badge' in exp ? exp.badge : undefined;
@@ -244,7 +259,7 @@ export default async function ProjectOrgPage({ params }: Props) {
               Featured contributions
             </h2>
             <ExperienceOrgContributions
-              contributions={exp.contributions}
+              contributions={contributions}
               reposPrivate={exp.reposPrivate}
               compensationDetailsImage={exp.compensationDetailsImage}
             />

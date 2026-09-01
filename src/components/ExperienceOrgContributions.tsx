@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { ChevronDown, ExternalLink } from 'lucide-react';
 
-export type ContributionPR = { title: string; link: string };
+export type ContributionPR = { title: string; link: string; description?: string };
 
 export type ExperienceContribution = {
   title: string;
@@ -146,17 +146,24 @@ export function ExperienceOrgContributions({
                         {contribution.pullRequests?.map((pr, prIndex) => (
                           <li
                             key={prIndex}
-                            className="flex items-start gap-2 text-sm text-muted-foreground"
+                            className="flex flex-col gap-1 text-sm text-muted-foreground"
                           >
-                            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                            <a
-                              href={pr.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-foreground underline-offset-2 hover:underline"
-                            >
-                              {pr.title}
-                            </a>
+                            <div className="flex items-start gap-2">
+                              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                              <a
+                                href={pr.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-foreground underline-offset-2 hover:underline"
+                              >
+                                {pr.title}
+                              </a>
+                            </div>
+                            {pr.description && (
+                              <p className="ml-3 pl-0.5 text-xs text-muted-foreground/80 line-clamp-2">
+                                {pr.description}
+                              </p>
+                            )}
                           </li>
                         ))}
                       </ul>

@@ -9,6 +9,7 @@ export type ExperienceContribution = {
   bounty?: string;
   badge?: string;
   link?: string;
+  githubRepos?: string[];
   pullRequests?: { title: string; link: string }[];
 };
 
@@ -92,20 +93,7 @@ export const experiences: Experience[] = [
         title: 'Platform Infrastructure and Security',
         description: 'Contributed to the InsForge codebase with key fixes for Docker configuration, database backup permissions, and multi-admin support for the self-hosted dashboard.',
         badge: 'Open Source',
-        pullRequests: [
-          {
-            title: '#1623 · fix: remove obsolete version attribute from docker-compose.yml',
-            link: 'https://github.com/InsForge/InsForge/pull/1623'
-          },
-          {
-            title: '#1563 · fix: grant SELECT on system.database_backups to project_admin',
-            link: 'https://github.com/InsForge/InsForge/pull/1563'
-          },
-          {
-            title: '#1495 · feat: multi-admin support for self-hosted dashboard',
-            link: 'https://github.com/InsForge/InsForge/pull/1495'
-          }
-        ]
+        githubRepos: ['InsForge/InsForge']
       }
     ]
   },
@@ -125,20 +113,7 @@ export const experiences: Experience[] = [
         title: 'Core Engine and Fixes',
         description: 'Contributed production-focused fixes to inspect-robots and Yam, including config error handling, fallback logic, and docs updates.',
         badge: 'Open Source',
-        pullRequests: [
-          {
-            title: '#170 · Reject non-string LLMAgentPolicy config options with a guided ConfigError',
-            link: 'https://github.com/robocurve/inspect-robots/pull/170'
-          },
-          {
-            title: '#41 · fix: success evaluation fallback, handle empty/dark float frames',
-            link: 'https://github.com/robocurve/inspect-robots/pull/41'
-          },
-          {
-            title: '#57 · docs: fix uv run note, stale Quickstart reference',
-            link: 'https://github.com/robocurve/inspect-robots-yam/pull/57'
-          }
-        ]
+        githubRepos: ['robocurve/inspect-robots', 'robocurve/inspect-robots-yam']
       }
     ]
   },
@@ -176,12 +151,7 @@ export const experiences: Experience[] = [
         title: 'Core Open Source Contribution',
         description: 'Contributed to Twenty, an open-source CRM platform. Implemented fixes and improvements that were successfully merged into the core codebase.',
         badge: 'Open Source',
-        pullRequests: [
-          {
-            title: '#22215 · fix: stamp MCP and AI Agent writes with FieldActorSource.AGENT',
-            link: 'https://github.com/twentyhq/twenty/pull/22215'
-          }
-        ]
+        githubRepos: ['twentyhq/twenty']
       }
     ]
   }
