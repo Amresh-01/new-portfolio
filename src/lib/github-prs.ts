@@ -6,24 +6,27 @@ export async function fetchPullRequestsForRepos(
 
   const githubToken = process.env.GRAPHQL_TOKEN || process.env.GITHUB_TOKEN;
   if (!githubToken) {
-    console.warn('No GitHub token found for fetching PRs.');
-    return [];
+    console.warn('No GitHub token found for fetching PRs, falling back to unauthenticated (rate-limited) search.');
   }
 
   const repoQueries = repos.map(repo => `repo:${repo}`).join(' ');
-  // Search for public or private PRs authored by the user in the specified repos
-  const q = `is:pr author:${username} ${repoQueries}`;
+  // Search for public or private merged PRs authored by the user in the specified repos
+  const q = `is:pr is:merged author:${username} ${repoQueries}`;
 
   try {
+    const headers: Record<string, string> = {
+      Accept: 'application/vnd.github.v3+json',
+    };
+    if (githubToken) {
+      headers.Authorization = `Bearer ${githubToken}`;
+    }
+
     const res = await fetch(
       `https://api.github.com/search/issues?q=${encodeURIComponent(
         q
       )}&sort=created&order=desc`,
       {
-        headers: {
-          Authorization: `Bearer ${githubToken}`,
-          Accept: 'application/vnd.github.v3+json',
-        },
+        headers,
         next: { revalidate: 3600 },
       }
     );

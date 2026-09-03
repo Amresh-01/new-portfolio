@@ -46,7 +46,7 @@ export default async function ProjectOrgPage({ params }: Props) {
     notFound();
   }
 
-  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Anshgrover23';
+  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Amresh-01';
   const contributions = JSON.parse(JSON.stringify(exp.contributions)) as typeof exp.contributions;
 
   await Promise.all(

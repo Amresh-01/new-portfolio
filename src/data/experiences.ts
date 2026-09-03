@@ -93,7 +93,10 @@ export const experiences: Experience[] = [
         title: 'Platform Infrastructure and Security',
         description: 'Contributed to the InsForge codebase with key fixes for Docker configuration, database backup permissions, and multi-admin support for the self-hosted dashboard.',
         badge: 'Open Source',
-        githubRepos: ['InsForge/InsForge']
+        githubRepos: ['InsForge/InsForge'],
+        pullRequests: [
+          { title: 'View Merged PRs', link: 'https://github.com/search?q=repo%3AInsForge%2FInsForge+is%3Apr+author%3AAmresh-01+is%3Amerged&type=pullrequests' }
+        ]
       }
     ]
   },
@@ -113,7 +116,10 @@ export const experiences: Experience[] = [
         title: 'Core Engine and Fixes',
         description: 'Contributed production-focused fixes to inspect-robots and Yam, including config error handling, fallback logic, and docs updates.',
         badge: 'Open Source',
-        githubRepos: ['robocurve/inspect-robots', 'robocurve/inspect-robots-yam']
+        githubRepos: ['robocurve/inspect-robots', 'robocurve/inspect-robots-yam'],
+        pullRequests: [
+          { title: 'View Merged PRs', link: 'https://github.com/search?q=repo%3Arobocurve%2Finspect-robots+repo%3Arobocurve%2Finspect-robots-yam+is%3Apr+author%3AAmresh-01+is%3Amerged&type=pullrequests' }
+        ]
       }
     ]
   },
@@ -151,7 +157,10 @@ export const experiences: Experience[] = [
         title: 'Core Open Source Contribution',
         description: 'Contributed to Twenty, an open-source CRM platform. Implemented fixes and improvements that were successfully merged into the core codebase.',
         badge: 'Open Source',
-        githubRepos: ['twentyhq/twenty']
+        githubRepos: ['twentyhq/twenty'],
+        pullRequests: [
+          { title: 'View Merged PRs', link: 'https://github.com/search?q=repo%3Atwentyhq%2Ftwenty+is%3Apr+author%3AAmresh-01+is%3Amerged&type=pullrequests' }
+        ]
       }
     ]
   }
