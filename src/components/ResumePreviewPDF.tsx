@@ -6,7 +6,7 @@ import { pdfjs, Document, Page } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const RESUME_PDF = '/Amresh_resume_new.pdf';
 
@@ -48,6 +48,8 @@ export default function ResumePreviewPDF() {
         <Document
           file={RESUME_PDF}
           onLoadSuccess={() => setLoaded(true)}
+          onLoadError={(error) => console.error('Error while loading document!', error)}
+          onSourceError={(error) => console.error('Error while loading document source!', error)}
           className={cn(
             'flex flex-col items-center transition-opacity duration-300 w-full',
             loaded ? 'opacity-100' : 'opacity-0'
