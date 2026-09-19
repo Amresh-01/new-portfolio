@@ -1,18 +1,43 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
 import { Download, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { pdfjs, Document, Page } from 'react-pdf';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
+import dynamic from 'next/dynamic';
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+const ResumePreviewDynamic = dynamic(() => import('./ResumePreviewPDF'), {
+  ssr: false,
+  loading: () => (
+    <figure className="mx-auto w-full">
+      <div className="relative overflow-hidden rounded-sm bg-background shadow-[0_1px_0_rgba(47,52,55,0.04),0_18px_50px_-28px_rgba(47,52,55,0.35)]">
+        <div className="absolute inset-0 z-[1] animate-pulse bg-canvas-muted" style={{ aspectRatio: '160/207' }} aria-hidden />
+      </div>
+    </figure>
+  ),
+});
 
 const RESUME_PDF = '/Amresh_resume_new.pdf';
 const RESUME_FILENAME = 'Amresh_resume_new.pdf';
 
 export function ResumeActions({ className }: { className?: string }) {
+  const handleDownload = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(RESUME_PDF);
+      const blob = await res.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = RESUME_FILENAME;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Failed to download resume:', error);
+      window.open(RESUME_PDF, '_blank');
+    }
+  };
+
   return (
     <div
       className={cn('flex shrink-0 flex-wrap items-center gap-2', className)}
@@ -20,6 +45,7 @@ export function ResumeActions({ className }: { className?: string }) {
       <a
         href={RESUME_PDF}
         download={RESUME_FILENAME}
+        onClick={handleDownload}
         className="inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground px-3 py-1.5 text-xs font-semibold text-background transition-[transform,background-color,color,border-color] hover:-translate-y-px hover:border-foreground hover:bg-background hover:text-foreground active:translate-y-0 active:scale-[0.98] sm:px-3.5 sm:text-sm"
       >
         <Download className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
@@ -39,59 +65,7 @@ export function ResumeActions({ className }: { className?: string }) {
 }
 
 export function ResumePreview() {
-  const [loaded, setLoaded] = useState(false);
-  const [width, setWidth] = useState<number>(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new ResizeObserver((entries) => {
-      if (entries[0]) {
-        setWidth(entries[0].contentRect.width);
-      }
-    });
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <figure className="mx-auto w-full">
-      <div
-        ref={containerRef}
-        className={cn(
-          'relative overflow-hidden rounded-sm bg-background',
-          'shadow-[0_1px_0_rgba(47,52,55,0.04),0_18px_50px_-28px_rgba(47,52,55,0.35)]'
-        )}
-      >
-        {!loaded && (
-          <div
-            className="absolute inset-0 z-[1] animate-pulse bg-canvas-muted"
-            style={{ aspectRatio: '160/207' }}
-            aria-hidden
-          />
-        )}
-        <Document
-          file={RESUME_PDF}
-          onLoadSuccess={() => setLoaded(true)}
-          className={cn(
-            'flex flex-col items-center transition-opacity duration-300 w-full',
-            loaded ? 'opacity-100' : 'opacity-0'
-          )}
-        >
-          <Page 
-            pageNumber={1} 
-            width={width || undefined}
-            renderTextLayer={false} 
-            renderAnnotationLayer={false} 
-            className="w-full"
-          />
-        </Document>
-      </div>
-    </figure>
-  );
+  return <ResumePreviewDynamic />;
 }
 
 export const ResumeViewer = {
