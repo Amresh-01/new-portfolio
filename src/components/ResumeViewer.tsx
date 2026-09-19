@@ -1,19 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { Download, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import dynamic from 'next/dynamic';
-
-const ResumePreviewDynamic = dynamic(() => import('./ResumePreviewPDF'), {
-  ssr: false,
-  loading: () => (
-    <figure className="mx-auto w-full">
-      <div className="relative overflow-hidden rounded-sm bg-background shadow-[0_1px_0_rgba(47,52,55,0.04),0_18px_50px_-28px_rgba(47,52,55,0.35)]">
-        <div className="absolute inset-0 z-[1] animate-pulse bg-canvas-muted" style={{ aspectRatio: '160/207' }} aria-hidden />
-      </div>
-    </figure>
-  ),
-});
 
 const RESUME_PDF = '/Amresh_resume_new.pdf';
 const RESUME_FILENAME = 'Amresh_resume_new.pdf';
@@ -65,7 +54,37 @@ export function ResumeActions({ className }: { className?: string }) {
 }
 
 export function ResumePreview() {
-  return <ResumePreviewDynamic />;
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <figure className="mx-auto w-full">
+      <div
+        className={cn(
+          'relative overflow-hidden rounded-sm bg-background',
+          'shadow-[0_1px_0_rgba(47,52,55,0.04),0_18px_50px_-28px_rgba(47,52,55,0.35)]'
+        )}
+        style={{ aspectRatio: '160/207' }}
+      >
+        {!loaded && (
+          <div
+            className="absolute inset-0 z-[1] animate-pulse bg-canvas-muted"
+            aria-hidden
+          />
+        )}
+        <div className="absolute inset-[-4px] md:inset-[-6px]">
+          <iframe
+            src={`${RESUME_PDF}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+            title="Amresh Chaurasiya resume"
+            className={cn(
+              'w-full h-full border-none transition-opacity duration-300 pointer-events-none',
+              loaded ? 'opacity-100' : 'opacity-0'
+            )}
+            onLoad={() => setLoaded(true)}
+          />
+        </div>
+      </div>
+    </figure>
+  );
 }
 
 export const ResumeViewer = {
