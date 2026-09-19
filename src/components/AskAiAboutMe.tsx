@@ -29,12 +29,12 @@ function AnthropicMark({ className }: { className?: string }) {
 const LINKS = [
   {
     href: getChatGptAskUrl(),
-    label: 'talk to chatgpt about me',
+    label: 'Talk to ChatGPT about me',
     Icon: OpenAiMark,
   },
   {
     href: getClaudeAskUrl(),
-    label: 'talk to claude about me',
+    label: 'Talk to Claude about me',
     Icon: AnthropicMark,
   },
 ] as const;
@@ -74,7 +74,7 @@ export function AskAiAboutMe({
             className="group inline-flex items-center gap-2.5 rounded-full border border-foreground/15 bg-background/50 px-4 py-2.5 text-sm text-foreground/85 backdrop-blur-sm transition-colors hover:border-foreground/30 hover:bg-background/80 hover:text-foreground active:scale-[0.98]"
           >
             <Icon className="h-4 w-4 shrink-0 text-foreground/70 transition-colors group-hover:text-foreground" />
-            <span className="lowercase tracking-tight">
+            <span className="tracking-tight">
               {label}{' '}
               <span
                 aria-hidden
