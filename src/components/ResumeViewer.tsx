@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { Download, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const RESUME_PDF = '/Amresh_resume_new.pdf';
-const RESUME_FILENAME = 'Amresh_resume_new.pdf';
+const RESUME_PDF = '/Amresh_Resume_new.pdf';
+const RESUME_FILENAME = 'Amresh_Resume_new.pdf';
 
 export function ResumeActions({ className }: { className?: string }) {
   const handleDownload = async (e: React.MouseEvent<HTMLAnchorElement>) => {
