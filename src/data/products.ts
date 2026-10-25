@@ -223,7 +223,7 @@ export const products: Product[] = [
       'An interactive 3D cinema booking platform with realistic auditorium sightline simulation and zero-double-booking guarantees using PostgreSQL pessimistic row locking.',
     year: '2026',
     status: 'Live',
-    liveUrl: 'https://movie-ticket-backend-6vu0.onrender.com',
+    liveUrl: 'https://cinespot.amreshdev.me/',
     githubUrl: 'https://github.com/Amresh-01/Movie-ticket',
     coverImage: '/projects/cinespot.jpg',
     stack: [

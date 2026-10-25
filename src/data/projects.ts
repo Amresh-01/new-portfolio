@@ -242,7 +242,7 @@ export const projects: Project[] = [
     category: ["Full Stack", "Backend", "3D Web", "Concurrency"],
     techStack: ["React", "TypeScript", "Three.js", "React Three Fiber", "Node.js", "Express", "PostgreSQL", "Prisma", "Docker"],
     links: [
-      { url: "https://movie-ticket-backend-6vu0.onrender.com", text: "Backend API", primary: true },
+      { url: "https://cinespot.amreshdev.me/", text: "Visit Site", primary: true },
       { url: "https://github.com/Amresh-01/Movie-ticket", text: "GitHub", primary: false }
     ],
     architecture: [
