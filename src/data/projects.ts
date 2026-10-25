@@ -231,5 +231,37 @@ export const projects: Project[] = [
     lessons: [
       "Decoupling the ML inference engine from the core API prevented long-running predictions from blocking standard web requests."
     ]
+  },
+  {
+    id: "yozigo",
+    title: "Yozigo",
+    status: "Live",
+    image: "/projects/yozigo.jpg",
+    description: "An enterprise-ready 3D cinema ticket booking system featuring realistic auditorium sightline simulation and zero-double-booking guarantees.",
+    fullDescription: "Yozigo is a full-stack movie ticket reservation platform built with an emphasis on real-time concurrency control, atomic seat reservation guarantees, and a realistic 3D cinema auditorium simulator built with Three.js and React Three Fiber. Customers can explore movie showtimes, view the auditorium in full 3D, and click any of the 80 physical seats to preview the exact seated vantage and sightline looking directly at the live playing movie projection.",
+    category: ["Full Stack", "Backend", "3D Web", "Concurrency"],
+    techStack: ["React", "TypeScript", "Three.js", "React Three Fiber", "Node.js", "Express", "PostgreSQL", "Prisma", "Docker"],
+    links: [
+      { url: "https://movie-ticket-backend-6vu0.onrender.com", text: "Backend API", primary: true },
+      { url: "https://github.com/Amresh-01/Movie-ticket", text: "GitHub", primary: false }
+    ],
+    architecture: [
+      { label: "01 — React / R3F Canvas", detail: "80 physical cushioned 3D chairs with stadium risers" },
+      { label: "02 — Sightline Camera Engine", detail: "Smooth camera transitions to eye-level seat perspective" },
+      { label: "03 — Express API Gateway", detail: "Stateless JWT auth and showtime collision checks" },
+      { label: "04 — Concurrency Guard", detail: "PostgreSQL pessimistic locks (SELECT FOR UPDATE)" },
+      { label: "05 — Deadlock Prevention", detail: "Deterministic alphabetical seatId sorting before lock" },
+      { label: "06 — 5-Min Hold Worker", detail: "Automated lock expiration and release pipeline" }
+    ],
+    whyBuilt: "High-demand ticket reservation systems frequently suffer from race conditions where two users book the same seat simultaneously. I built Yozigo to prove zero double-booking under extreme concurrent load while providing an immersive 3D seat preview.",
+    challenges: [
+      "Preventing database deadlocks when multiple concurrent users attempt to hold overlapping sets of seats in differing order",
+      "Rendering an 80-seat realistic 3D cinema environment with stadium lighting, dynamic video playback, and smooth 60 FPS performance",
+      "Maintaining atomic 5-minute seat holds across simulated payment failures and retries"
+    ],
+    lessons: [
+      "Sorting resource IDs deterministically before acquiring pessimistic row locks completely eliminates deadlock conditions in high-concurrency booking engines.",
+      "Optimizing 3D geometry instances and materials is critical to keeping browser framerates high on mobile devices."
+    ]
   }
 ];

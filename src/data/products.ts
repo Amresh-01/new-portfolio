@@ -214,6 +214,35 @@ export const products: Product[] = [
       'Successfully extracted strict semantic triplets (Subject-Predicate-Object) from messy text.',
       'Proved that Hybrid retrieval (Graph + Vector) dramatically outperforms pure vector search for multi-hop synthesis.'
     ],
+  },
+  {
+    slug: 'yozigo',
+    name: 'Yozigo',
+    tagline: '3D cinema ticket booking & atomic concurrency system',
+    summary:
+      'An interactive 3D cinema booking platform with realistic auditorium sightline simulation and zero-double-booking guarantees using PostgreSQL pessimistic row locking.',
+    year: '2026',
+    status: 'Live',
+    liveUrl: 'https://movie-ticket-backend-6vu0.onrender.com',
+    githubUrl: 'https://github.com/Amresh-01/Movie-ticket',
+    coverImage: '/projects/yozigo.jpg',
+    stack: [
+      { label: 'React', icon: `${DEVICON}/react/react-original.svg` },
+      { label: 'TypeScript', icon: `${DEVICON}/typescript/typescript-original.svg` },
+      { label: 'Three.js', icon: `${DEVICON}/threejs/threejs-original.svg` },
+      { label: 'Node.js', icon: `${DEVICON}/nodejs/nodejs-original.svg` },
+      { label: 'Postgres', icon: `${DEVICON}/postgresql/postgresql-original.svg` },
+      { label: 'Docker', icon: `${DEVICON}/docker/docker-original.svg` }
+    ],
+    problem:
+      'High-traffic cinema ticket bookings frequently suffer from race conditions, double-booked seats, and poor seat perspective previews before purchasing.',
+    approach:
+      'Engineered an atomic reservation engine backed by PostgreSQL row-level locks (SELECT ... FOR UPDATE) and dead-lock prevention sorting, paired with a custom Three.js 3D auditorium simulator with exact eye-level seat sightline inspection.',
+    outcomes: [
+      'Zero double-booking guarantee validated through 18 automated concurrent stress tests.',
+      'Interactive 3D auditorium with 80 physical seats, stadium risers, and dynamic live video projection.',
+      '5-minute atomic seat hold with resilient payment retries and automatic cron-based expiration release.'
+    ],
   }
 ];
 
