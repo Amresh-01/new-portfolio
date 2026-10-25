@@ -25,6 +25,62 @@ const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
 
 export const products: Product[] = [
   {
+    slug: 'graphsight',
+    name: 'GraphSight Pro',
+    tagline: 'Multi-agent memory tracer & knowledge graph visualizer',
+    summary:
+      'A production-grade agent tracing framework with smart lexical overlap detection, LangGraph & LlamaIndex adapters, and interactive graph diffs.',
+    year: '2026',
+    status: 'Live',
+    liveUrl: 'https://graphsight.amreshdev.me',
+    githubUrl: 'https://github.com/Amresh-01/Graphsight',
+    coverImage: '/projects/graphsight.jpg',
+    stack: [
+      { label: 'Python', icon: `${DEVICON}/python/python-original.svg` },
+      { label: 'React', icon: `${DEVICON}/react/react-original.svg` },
+      { label: 'TypeScript', icon: `${DEVICON}/typescript/typescript-original.svg` },
+      { label: 'FastAPI', icon: `${DEVICON}/fastapi/fastapi-original.svg` },
+      { label: 'Docker', icon: `${DEVICON}/docker/docker-original.svg` }
+    ],
+    problem:
+      'AI agent frameworks frequently suffer from retrieval blind spots, tool execution opacity, and redundant context loading that cannot be tracked or audited in production.',
+    approach:
+      'Engineered an open-source observability engine that models multi-agent execution steps as interactive directed acyclic graphs (DAGs), computing real-time lexical overlap to detect whether retrieved entities were actually utilized in responses.',
+    outcomes: [
+      'Published official Python SDK packages (graphsight-pro and graphsight-pro-langgraph) to PyPI.',
+      'Designed sublinear TF + bigram lexical similarity algorithms for accurate hallucination & retrieved-vs-used detection.',
+      'Deployed full-stack interactive canvas with real-time score threshold filtering and one-click JSON trace export.'
+    ],
+  },
+  {
+    slug: 'agentos',
+    name: 'AgentOS',
+    tagline: 'Self-hosted AI agent operating system',
+    summary:
+      'A robust platform for orchestrating autonomous workflows, tools, workers, and persistent memory using a Planner/Supervisor architecture.',
+    year: '2026',
+    status: 'Building',
+    githubUrl: 'https://github.com/Amresh-01',
+    coverImage: '/projects/agentos.jpg',
+    stack: [
+      { label: 'Next.js', icon: `${DEVICON}/nextjs/nextjs-original.svg`, invert: true },
+      { label: 'Python', icon: `${DEVICON}/python/python-original.svg` },
+      { label: 'FastAPI', icon: `${DEVICON}/fastapi/fastapi-original.svg` },
+      { label: 'Postgres', icon: `${DEVICON}/postgresql/postgresql-original.svg` },
+      { label: 'Redis', icon: `${DEVICON}/redis/redis-original.svg` },
+      { label: 'Docker', icon: `${DEVICON}/docker/docker-original.svg` }
+    ],
+    problem:
+      'I needed a way to orchestrate complex, multi-step AI tasks that transcend a single context window. Existing frameworks were either too rigid or designed as opaque SaaS products.',
+    approach:
+      'I built AgentOS to fully own the execution layer, memory, and observability. It operates on a Planner/Supervisor architecture, distributing tasks across dedicated worker queues while maintaining state through a unified memory layer.',
+    outcomes: [
+      'Decoupled planning phase from execution significantly reduces hallucination cascading.',
+      'Combined vector search with structured SQL metadata yielding much higher retrieval precision.',
+      'Built a reliable observability pipeline for non-deterministic AI outputs.'
+    ],
+  },
+  {
     slug: 'canteeno',
     name: 'Canteeno',
     tagline: 'High-concurrency food ordering',
@@ -77,34 +133,6 @@ export const products: Product[] = [
       'Decoupled the ML inference engine from the core API, preventing long-running predictions from blocking standard web requests.',
       'Structured fast and typo-forgiving symptom search capabilities.',
       'Managed complex patient booking flow state management.'
-    ],
-  },
-  {
-    slug: 'agentos',
-    name: 'AgentOS',
-    tagline: 'Self-hosted AI agent operating system',
-    summary:
-      'A robust platform for orchestrating autonomous workflows, tools, workers, and persistent memory using a Planner/Supervisor architecture.',
-    year: '2026',
-    status: 'Building',
-    githubUrl: 'https://github.com/Amresh-01',
-    coverImage: '/projects/agentos.jpg',
-    stack: [
-      { label: 'Next.js', icon: `${DEVICON}/nextjs/nextjs-original.svg`, invert: true },
-      { label: 'Python', icon: `${DEVICON}/python/python-original.svg` },
-      { label: 'FastAPI', icon: `${DEVICON}/fastapi/fastapi-original.svg` },
-      { label: 'Postgres', icon: `${DEVICON}/postgresql/postgresql-original.svg` },
-      { label: 'Redis', icon: `${DEVICON}/redis/redis-original.svg` },
-      { label: 'Docker', icon: `${DEVICON}/docker/docker-original.svg` }
-    ],
-    problem:
-      'I needed a way to orchestrate complex, multi-step AI tasks that transcend a single context window. Existing frameworks were either too rigid or designed as opaque SaaS products.',
-    approach:
-      'I built AgentOS to fully own the execution layer, memory, and observability. It operates on a Planner/Supervisor architecture, distributing tasks across dedicated worker queues while maintaining state through a unified memory layer.',
-    outcomes: [
-      'Decoupled planning phase from execution significantly reduces hallucination cascading.',
-      'Combined vector search with structured SQL metadata yielding much higher retrieval precision.',
-      'Built a reliable observability pipeline for non-deterministic AI outputs.'
     ],
   },
   {

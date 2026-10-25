@@ -28,6 +28,37 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "graphsight",
+    title: "GraphSight Pro",
+    status: "Live",
+    image: "/projects/graphsight.jpg",
+    description: "Multi-agent memory tracer & knowledge graph visualizer with smart lexical overlap and diff analysis.",
+    fullDescription: "GraphSight Pro is an open-source observability framework for complex multi-agent architectures (LangGraph, LlamaIndex, custom orchestrators). It translates multi-step agent runs into interactive knowledge graph representations, calculating lexical similarity between retrieved knowledge and generated answers to detect hallucinations and context usage in real time.",
+    category: ["AI", "Observability", "Developer Tools"],
+    techStack: ["Python", "PyPI", "LangGraph", "LlamaIndex", "React", "TypeScript", "FastAPI", "Docker"],
+    links: [
+      { url: "https://graphsight.amreshdev.me", text: "Visit Site", primary: true },
+      { url: "https://github.com/Amresh-01/Graphsight", text: "GitHub", primary: false }
+    ],
+    architecture: [
+      { label: "01 — Agent Execution Hook", detail: "LangGraph / LlamaIndex callback & tracer" },
+      { label: "02 — Run Ingest Engine", detail: "Local file/memory serialization of steps" },
+      { label: "03 — Overlap Analyzer", detail: "Sublinear TF + bigram phrase similarity scoring" },
+      { label: "04 — FastAPI Backend", detail: "Serving traces, runs, and graph diffs" },
+      { label: "05 — Interactive Canvas", detail: "React Force Graph with score threshold filtering" }
+    ],
+    whyBuilt: "When building complex agents, knowing whether an agent hallucinated or genuinely used its retrieved context is nearly impossible without manual prompt debugging. I engineered GraphSight Pro to provide a clear, real-time visual knowledge graph of every decision an agent makes.",
+    challenges: [
+      "Designing unified tracing abstractions compatible across both LangGraph StateGraph and LlamaIndex workflows",
+      "Computing real-time lexical overlap scores across large document corpora without introducing execution latency",
+      "Rendering dynamic interactive DAG diffs with thousands of step nodes smoothly in the browser"
+    ],
+    lessons: [
+      "Sublinear term frequency combined with bigram phrase extraction yields vastly superior signal for retrieved-vs-used detection than naive keyword counting.",
+      "Developer tools must be plug-and-play: offering both a drop-in Python library (`pip install graphsight-pro`) and a zero-config CLI was crucial for adoption."
+    ]
+  },
+  {
     id: "agentos",
     title: "AgentOS",
     status: "Building",

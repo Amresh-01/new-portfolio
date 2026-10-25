@@ -27,7 +27,7 @@ export function ProjectsHome() {
       </div>
 
       <ul className="list-none border-t border-line/80">
-        {products.slice(0, 3).map(product => (
+        {products.slice(0, 4).map(product => (
           <li
             key={product.slug}
             className="border-b border-line/80 py-8 md:py-10"
