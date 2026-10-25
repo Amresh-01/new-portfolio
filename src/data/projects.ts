@@ -233,12 +233,12 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: "yozigo",
-    title: "Yozigo",
+    id: "cinespot",
+    title: "CineSpot",
     status: "Live",
-    image: "/projects/yozigo.jpg",
+    image: "/projects/cinespot.jpg",
     description: "An enterprise-ready 3D cinema ticket booking system featuring realistic auditorium sightline simulation and zero-double-booking guarantees.",
-    fullDescription: "Yozigo is a full-stack movie ticket reservation platform built with an emphasis on real-time concurrency control, atomic seat reservation guarantees, and a realistic 3D cinema auditorium simulator built with Three.js and React Three Fiber. Customers can explore movie showtimes, view the auditorium in full 3D, and click any of the 80 physical seats to preview the exact seated vantage and sightline looking directly at the live playing movie projection.",
+    fullDescription: "CineSpot is a full-stack movie ticket reservation platform built with an emphasis on real-time concurrency control, atomic seat reservation guarantees, and a realistic 3D cinema auditorium simulator built with Three.js and React Three Fiber. Customers can explore movie showtimes, view the auditorium in full 3D, and click any of the 80 physical seats to preview the exact seated vantage and sightline looking directly at the live playing movie projection.",
     category: ["Full Stack", "Backend", "3D Web", "Concurrency"],
     techStack: ["React", "TypeScript", "Three.js", "React Three Fiber", "Node.js", "Express", "PostgreSQL", "Prisma", "Docker"],
     links: [
@@ -253,7 +253,7 @@ export const projects: Project[] = [
       { label: "05 — Deadlock Prevention", detail: "Deterministic alphabetical seatId sorting before lock" },
       { label: "06 — 5-Min Hold Worker", detail: "Automated lock expiration and release pipeline" }
     ],
-    whyBuilt: "High-demand ticket reservation systems frequently suffer from race conditions where two users book the same seat simultaneously. I built Yozigo to prove zero double-booking under extreme concurrent load while providing an immersive 3D seat preview.",
+    whyBuilt: "High-demand ticket reservation systems frequently suffer from race conditions where two users book the same seat simultaneously. I built CineSpot to prove zero double-booking under extreme concurrent load while providing an immersive 3D seat preview.",
     challenges: [
       "Preventing database deadlocks when multiple concurrent users attempt to hold overlapping sets of seats in differing order",
       "Rendering an 80-seat realistic 3D cinema environment with stadium lighting, dynamic video playback, and smooth 60 FPS performance",

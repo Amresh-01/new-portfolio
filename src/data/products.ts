@@ -216,8 +216,8 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: 'yozigo',
-    name: 'Yozigo',
+    slug: 'cinespot',
+    name: 'CineSpot',
     tagline: '3D cinema ticket booking & atomic concurrency system',
     summary:
       'An interactive 3D cinema booking platform with realistic auditorium sightline simulation and zero-double-booking guarantees using PostgreSQL pessimistic row locking.',
@@ -225,7 +225,7 @@ export const products: Product[] = [
     status: 'Live',
     liveUrl: 'https://movie-ticket-backend-6vu0.onrender.com',
     githubUrl: 'https://github.com/Amresh-01/Movie-ticket',
-    coverImage: '/projects/yozigo.jpg',
+    coverImage: '/projects/cinespot.jpg',
     stack: [
       { label: 'React', icon: `${DEVICON}/react/react-original.svg` },
       { label: 'TypeScript', icon: `${DEVICON}/typescript/typescript-original.svg` },
